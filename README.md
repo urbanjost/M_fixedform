@@ -1,20 +1,31 @@
 # Work-In-Progress
    
-   Ideas on how to simplify creating a TDI with Ncurses from Fortran. That
-   is, create simple forms in terminal windows.
+   **M_fixedform** simplifies creating a TUI (Terminal User Interface)
+   with Ncurses from Fortran. That is it facilitates creating simple
+   forms in terminal windows.
 
-   The idea is based on fuzzy memories of the CDC NOS TDU Fortran
-   interface and CCL where a simple text representation of a form plus
-   some simple descriptions could be turned into a screen-mode interface
-   from Fortran.
+## ![M_fixedform](docs/images/M_fixedform.gif)
 
-   Still in beta so subject to change. Probably at least needs scrolling
-   input fields and pull-down menus.
+   The idea of **M_fixedform** is based on fuzzy memories of the
+   CDC NOS TDU Fortran interface and PDU and CCL where a simple text
+   representation of a form plus some simple descriptions could be turned
+   into a screen-mode interface from Fortran.
 
-   A sample input file that describes the interface that uses the interface
-   to generate an HTML output file is in
+   Surprisingly, long after creating this I found a manual for the
+   TDU product from long ago that inspired this. Although they are not
+   all that similiar after all, M_fixedform and PDUs at least share an
+   approach where a simple text template defines a more refined TDI:
+
+   [NOS TDU manual](http://www.bitsavers.org/pdf/cdc/Tom_Hunter_Scans/NOS_2_Screen_Formatting_RefMan_Apr88.pdf)
+
+   Still in beta so subject to change, but this has been stable for
+   a long time. Probably at least needs scrolling input fields and
+   pull-down menus.
+
+   A sample view of a **M_fixedform** input file as it would be rendered on the
+   screen that also describes the input file format converted to HTML (using an
+   included program) is in 
    [paper0001](https://urbanjost.github.io/M_fixedform/paper0001.html) 
-
 
 ## ![M_fixedform](docs/images/id.gif)
 
