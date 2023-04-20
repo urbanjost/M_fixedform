@@ -27,8 +27,6 @@
    included program) is in 
    [paper0001](https://urbanjost.github.io/M_fixedform/paper0001.html) 
 
-## ![M_fixedform](docs/images/id.gif)
-
 ## Name
    M_fixedform(3f) - use M_ncurses to generated fixed forms
    (LICENSE:MIT)
