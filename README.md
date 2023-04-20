@@ -1,7 +1,19 @@
 # Work-In-Progress
    
-   Ideas on how to simplify creating a TDU with Ncurses
-   from Fortran
+   Ideas on how to simplify creating a TDI with Ncurses from Fortran. That
+   is, create simple forms in terminal windows.
+
+   The idea is based on fuzzy memories of the CDC NOS TDU Fortran
+   interface and CCL where a simple text representation of a form plus
+   some simple descriptions could be turned into a screen-mode interface
+   from Fortran.
+
+   Still in beta so subject to change. Probably at least needs scrolling
+   input fields and pull-down menus.
+
+   A sample input file that describes the interface that uses the interface
+   to generate an HTML output file is in
+   [paper0001](https://urbanjost.github.io/M_fixedform/paper0001.html) 
 
 
 ## ![M_fixedform](docs/images/id.gif)
