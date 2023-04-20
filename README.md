@@ -14,7 +14,7 @@
    Surprisingly, long after creating this I found a manual for the
    TDU product from long ago that inspired this. Although they are not
    all that similiar after all, M_fixedform and PDUs at least share an
-   approach where a simple text template defines a more refined TDI:
+   approach where a simple text template defines a more refined TUI:
 
    [NOS TDU manual](http://www.bitsavers.org/pdf/cdc/Tom_Hunter_Scans/NOS_2_Screen_Formatting_RefMan_Apr88.pdf)
 
