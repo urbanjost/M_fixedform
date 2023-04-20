@@ -1,0 +1,22 @@
+################################################################################
+# @LIMITATIONS ON USING POUND CHARACTERS:@                                     #
+# Note that the lines defined by pound characters need separated by non-pounds #
+# to behave as described, and that only a single row or column should be used  #
+# to define a radio-button menu. The ABCDEF menu is NOT a radio button because #
+# it has "o" breaks in the boxes between the box and the menu options.         #
+#                                              ##############################  #
+#                                              # Pick all the true choices  #  #
+#                  ######################      o#####o#####o#####o#####o####o  #
+#   ^`ARED  `      ^      ^      ^      ^      #     #     #     #     #    #  #
+#   ^`PWHITE`     TUE    WED    THU    FRI     ^     ^     ^     ^     ^    ^  #
+#   ^`DBLUE `                                  A     B     C     D     E    F  #
+#                                                                              #
+#                                                                              #
+#  #^TOP          An up-caret makes a button. Connected with pound-characters  #
+#  #^MIDDLE       they act as a group of radio buttons.                        #
+#  #^BOTTOM                               ^^^^^^^^^^      ^####^####^####^     #
+#                   ^##^##^##^##^         0123456789      #  # #    # #  #     #
+#                   1  2  3  4  5                         #  # #    # #  #     #
+#                                                         ^##^ ^####^ ^##^     #
+#                                                                              #
+################################################################################

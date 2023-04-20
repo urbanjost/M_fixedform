@@ -1,0 +1,335 @@
+!-----------------------------------------------------------------------------------------------------------------------------------
+!<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>-
+!-----------------------------------------------------------------------------------------------------------------------------------
+program fifo
+   use M_kracken, only : kracken, lget, sget, iget                  ! add command-line parser module
+   use M_fixedform
+   implicit none
+   character(len=:),allocatable :: filename
+   character(len=:),allocatable :: answers
+   logical                      :: loop, once=.true.
+   integer,parameter            :: io=10
+!  define command arguments, default values and crack command line
+   call kracken('fixedform','-f -loop .f. -help .f. -version .f. -demo "#N#"')
+   call help_usage(lget('fixedform_help'))                                ! if -help option is present, display help text and exit
+   call help_version(lget('fixedform_version'))                           ! if -version option is present, display version text and exit
+!  get commandline values. 
+   loop=lget('fixedform_loop')
+   filename=trim(sget('fixedform_oo'))//trim(sget('fixedform_f')) ! Allow filename as -oo or -f
+!  all done parsing; do something with the values
+   page_ptr=>page_pd
+   icount_ptr=>icount_pd
+   if(filename.eq.'')then
+      open(io,file='fixedform_demo.tui')
+$BLOCK WRITE
+  ######################################################################
+  # FIXEDFORM: Rapidly create easy-to-use TUI interfaces from Fortran. #
+  ######################################################################
+@SUMMARY:@
+
+ If your program input could be specified on type-written forms with
+ instructions, it should be as easy to create that interface on a computer
+ as it would be to create those forms on paper.
+
+ That is what FIXEDFORM allows you to do. The manpage for M_fixedform(3fm)
+ contains example programs.
+
+@DESCRIPTION:@
+
+ FIXEDFORM  provides  for  quickly  creating  simple  TUIs (Terminal-based
+ User Interfaces).  Complex  radio  buttons  are  supported as well as
+ text input fields and menu buttons.
+
+ FIXEFORM is appropriate for tasks such as interactively editing command
+ line  arguments  to  a  command and  simple  data-input forms.  It also
+ allows for easy construction and access to basic  instructions for
+ supplying input  values.
+
+ The FIXEDFORM user interface is intuitive and consistent, especially
+ for  Unix and  GNU/Linux  users  familar  with  utilities  such  as
+ the  vim(1) editor.
+
+ FIXEDFORM  can  be  called as a utility from practically any language,
+ or as a subroutine from Fortran.
+
+@PRINTED OUTPUT@
+
+ Snapshots of the formatted  input  forms  can  be  generated  as  simple  HTML
+ documents using built-in functions. Using 'ctrl-O' will generate output files
+ named "paperNNNN.html" where NNNN is an incremented whole number starting at
+ "0000".
+
+@REQUIREMENTS:@
+
+ FIXEDFORM is a terminal-based utility that requires
+  ^ the ncurses(3c) library
+  ^ a C compiler
+  ^ a Fortran compiler that supports the ISO_C_BINDING interface
+
+@INDEX:@
+
+    o PROGRAM INTERFACE         
+       o CHARACTER ARRAY        
+       o NAMELIST               
+       o ENVIRONMENTAL VARIABLES
+       o CALCULATOR VARIABLES   
+    o MAKING A FORM             
+    o USING A FORM              
+
+
+@PROGRAMMING INTERFACE@
+ The  programming interface is especially convenient for Fortran programs
+ to use, which otherwise  often  run  only  in  command-line-interface
+ environments.  A  minimal  amount  of  time  is  required  to  begin
+ creating applications that use it because the forms are easily created
+ using a text editor.
+
+
+@    The simplest use of FIXEDFORM is when a text file is used to define a     @
+@    form to be generated much like it could be drawn on paper:                @
+################################################################################
+#                                                                              #
+#  ~ A basic form definition:         ~  ^ `ARED`                              #
+#  ~ o Underlines become input fields ~  ^ `PWHITE`                            #
+#  ~ o Up-carets become menu options  ~  ^ `DBLUE`                             #
+#  ~ o Pound characters define boxes  ~                                        #
+#  ~ o Text otherwise displays as-is  ~  Connected by pound characters or      #
+#  ~   for the most part.             ~  adjacent to one another, up-carets    #
+#  Name:  ___________________            form a radio button.                  #
+#  Date:  ___________________            #######################               #
+#  Value: ___________________            ^      ^       ^      ^               #
+#                                       EAST   WEST   NORTH  SOUTH             #
+#                                                                              #
+# When the cursor is over a menu item it is toggled by pressing the space bar. #
+# A tab character moves to the next selectable item. Typing in an input value  #
+# changes the value. When the form is complete use the ctrl-S keys to submit.  #
+################################################################################
+ By  default  all  that  is  returned  when the ctrl-S key is entered is
+ a  character array composed of all the input fields, reading from left
+ to right first and then down the form.  A  selected  menu  item returns
+ a  T character, otherwise it returns an F character. When using this
+ mode with larger forms with more than one selection per line it becomes
+ difficult  to ensure  which value  goes with  which  entry so you have to
+ get more complicated. But for a small basic form that's pretty much it.
+
+ ~SUMMARY OF BASIC RULES FOR CREATING A FORM:~
+
+       @INPUT FIELDS@
+          ~ o Underlines become one-line input fields            ~
+          ~ o Up-carets become clickable menu options. When      ~
+          ~   adjacent to a single row or column of pound        ~
+          ~   characters they act as a radio button. The pound   ~
+          ~   characters will display as connecting lines.       ~
+
+       @DISPLAY OPTIONS@
+          ~ o Adjacent pound characters define boxes             ~
+          ~   (Single pound characters display as a pound symbol)~
+          ~ o Text between tilde characters is in reverse-video  ~
+          ~ o Text between at characters has a green background  ~
+          ~ o Backslashes can be used for shadowing              ~
+          ~ o Other text displays as-is as white text on a black ~
+          ~   background.                                        ~
+
+   ~######################~   `AA``BB``CC``DD``EE``FF``GG``HH`
+   ~#   January 2015     #~\  `II``JJ``KK``LL``MM``NN``OO``PP`
+   ~######################~\  `QQ``RR``SS``TT``UU``VV``WW``XX`
+   ~#Su#Mo#Tu#We#Th#Fr#Sa#~\  `YY``ZZ`
+   ~######################~\   grave pairs -- Letter after first grave sets
+   ~#  #  #  #  # 1# 2# 3#~\                  color pair
+   ~# 4# 5# 6# 7# 8# 9#10#~\
+   ~#11#12#13#14#15#16#17#~\
+   ~#18#19#20#21#22#23#24#~\
+   ~#25#26#27#28#29#30#31#~\   back-slash -- colored character cell for
+   ~######################~\                 shading
+    \\\\\\\\\\\\\\\\\\\\\\\\
+
+################################################################################
+# @LIMITATIONS ON USING POUND CHARACTERS:@                                     #
+# Note that the lines defined by pound characters need separated by non-pounds #
+# to behave as described, and that only a single row or column should be used  #
+# to define a radio-button menu. The ABCDEF menu is NOT a radio button because #
+# it has "o" breaks in the boxes between the box and the menu options.         #
+#                                              ##############################  #
+#                                              # Pick all the true choices  #  #
+#                  ######################      o#####o#####o#####o#####o####o  #
+#   ^`ARED  `      ^      ^      ^      ^      #     #     #     #     #    #  #
+#   ^`PWHITE`     TUE    WED    THU    FRI     ^     ^     ^     ^     ^    ^  #
+#   ^`DBLUE `                                  A     B     C     D     E    F  #
+#                                                                              #
+#                                                                              #
+#  #^TOP          An up-caret makes a button. Connected with pound-characters  #
+#  #^MIDDLE       they act as a group of radio buttons.                        #
+#  #^BOTTOM                               ^^^^^^^^^^      ^####^####^####^     #
+#                   ^##^##^##^##^         0123456789      #  # #    # #  #     #
+#                   1  2  3  4  5                         #  # #    # #  #     #
+#                                                         ^##^ ^####^ ^##^     #
+#                                                                              #
+################################################################################
+
+ There is a fixed function key panel at the bottom and a fixed message line.
+ The rest of the screen is a scrollable area reserved for the form.
+
+@THE PREDEFINED BOXES:@
+
+ There are PgUp and PgDn, Home, Help, End and Enter boxes at the screen
+ bottom.
+
+  o The PgUp and PgDn boxes page thru large forms from top to bottom.
+  o The Home box puts the upper right corner of the form
+    in the upper right corner of the scrolling region. 
+  o The Help box displays any help pages defined for the form.
+  o The End box ends the program. 
+  o The Submit box submits the form data back to the calling program for
+    processing.
+
+################################################################################
+@SCROLLING THE FORM REGION:@
+
+ If the terminal is big enough to display the entire form you don't have
+ to know how to scroll it (and at least for an xterm(1) window the program
+ will adjust to the terminal window being resized). But if~the form does
+ not fit in the terminal~you have many ways to scroll the visible subsection
+ of the form....
+
+  o The arrow keys do what you expect and move the cursor until they get to
+    the screen edge. Attempting to move past the screen edges scrolls the
+    form region.
+
+  o The shifted arrow keys also cause screen scrolling.
+
+  o In addition, the following ctrl-keys smooth-scroll the form display window:
+
+      o PgUp or ctrl-B (Backward) -- 1 screen up
+      o PgDn or ctrl-F (Forward)  -- 1 screen down
+      o ctrl-U (Up)               -- 1/2 screen up
+      o ctrl-D (Down)             -- 1/2 screen down
+
+         @SMOOTH SCROLLING@
+              ctrl-Y
+                #
+       ctrl-L ##### ctrl-R
+                #
+              ctrl-E
+################################################################################
+@CURSOR MOVEMENT:@
+
+The cursor is moved with the arrow keys or by toggling on vi-mode. In vi-mode
+the j,k,l,m keys move the cursor as they do in the vi(1) editor until ctrl-v
+is re-entered.
+
+The Home key places the top right corner of the form in the top right corner
+of the form display region and puts the cursor at the corner.
+
+The Tab key or ctrl-N moves to the next selectable field.
+The Backtab (ie. shifted Tab) key or ctrl-P moves to the previous
+selectable field.
+################################################################################
+@VI MODE@
+
+The ESCAPE key toggles vi(1) mode. ctrl-V always puts you in vi(1) mode. You are
+in vi(1) mode everywhere except underlined text input fields by default.
+
+ctrl-N or n or tab       -- go to next input field
+ctrl-P or p or shift-tab -- go to previous input field
+0                        -- beginning of line
+g                        -- top of form
+hjkl                     -- move cursor
+
+i or insert              -- insert mode in underlined field
+                            insert key or ESC key or anything other than a
+                            regular character, delete, arrow keys ends insert
+                            mode.
+x or delete              -- delete character in underlined field
+r                        -- replace mode in underlined field
+                            This is the default mode when not in vi(1) mode.
+                            ESCAPE will exit and leave you where you are.
+################################################################################
+Color pair examples:
+   #`AColor Pair A`# Color Pair A#
+   #`BColor Pair B`# Color Pair B#
+   #`CColor Pair C`# Color Pair C#
+   #`DColor Pair D`# Color Pair D#
+   #`EColor Pair E`# Color Pair E#
+   #`FColor Pair F`# Color Pair F#
+   #`GColor Pair G`# Color Pair G#
+   #`JColor Pair J`# Color Pair J#
+   #`IColor Pair I`# Color Pair I#
+   #`JColor Pair J`# Color Pair J#
+   #`KColor Pair K`# Color Pair K#
+   #`LColor Pair L`# Color Pair L#
+   #`MColor Pair M`# Color Pair M#
+   #`NColor Pair N`# Color Pair N#
+   #`OColor Pair O`# Color Pair O#
+   #`PColor Pair P`# Color Pair P#
+   #`QColor Pair Q`# Color Pair Q#
+   #`RColor Pair R`# Color Pair R#
+   #`SColor Pair S`# Color Pair S#
+   #`TColor Pair T`# Color Pair T#
+   #`UColor Pair U`# Color Pair U#
+   #`VColor Pair V`# Color Pair V#
+   #`WColor Pair W`# Color Pair W#
+   #`XColor Pair X`# Color Pair X#
+   #`YColor Pair Y`# Color Pair Y#
+   #`ZColor Pair Z`# Color Pair Z#
+################################################################################
+################################################################################
+$BLOCK
+      close(10)
+      filename='fixedform_demo.tui'
+   endif
+   call loaddata(filename)      ! fill the page(*) with user data
+   
+   do while (once)
+         call fixedform(tabs=answers)
+         write(*,*)answers
+	 once=loop
+   enddo
+contains
+$!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+$BLOCK VERSION
+PRODUCT:        GPF (General Purpose Fortran) utilities and examples
+PROGRAM:        fixedform(1)
+DESCRIPTION:    display a TUI definition and return values
+VERSION:        1.0, 20150508
+AUTHOR:         John S. Urban
+$BLOCK
+$!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+$BLOCK HELP -file fixedform.1.man
+NAME
+    fixedfrom(1f) - [FUNIX] read in a TUI definition and return values from screen panel
+    (LICENSE:PD)
+
+SYNOPSIS
+    fixedform [file|-demo]|[ --help| --version]
+
+DESCRIPTION
+    fixedform(1) reads in a TUI screen form definition and displays it and returns
+    the values used to fill out the screen.
+
+OPTIONS
+    file       name of file containing TUI definition
+    -loop      continue reading and displaying the the form unit a 'q' is entered
+    --help     display this help and exit
+    --version  output version information and exit
+    --demo
+
+EXAMPLES
+    Sample commands
+       
+       fixedform  FILE1
+
+REPORTING BUGS
+    Report fixedform bugs to <http://www.urbanjost.altervista.org/index.html>
+
+SEE ALSO
+    yes(1), repeat(1), xargs(1)
+AUTHOR
+   John S. Urban
+LICENSE
+   Public Domain
+$BLOCK
+$!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+end program fifo
+!-----------------------------------------------------------------------------------------------------------------------------------
+!<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>-
+!-----------------------------------------------------------------------------------------------------------------------------------

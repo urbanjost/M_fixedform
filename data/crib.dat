@@ -1,0 +1,87 @@
+@COMPLEX CHARACTERS@
+~-- add a complex character and rendition to a curses window, then advance the cursor ::~- add_wch, wadd_wch, mvadd_wch, mvwadd_wch, echo_wchar, wecho_wchar 
+~-- curses window complex background manipulation routines ::~- bkgrnd, wbkgrnd, bkgrndset, wbkgrndset, getbkgrnd, wgetbkgrnd
+~-- extract a complex character and rendition from a window ::~- in_wch, mvin_wch, mvwin_wch, win_wch
+~-- get an array of complex characters and renditions from a curses window ::~- in_wchstr, in_wchnstr, win_wchstr, win_wchnstr, mvin_wchstr, mvin_wchnstr, mvwin_wchstr, mvwin_wchnstr
+~-- insert a complex character and rendition into a window ::~- ins_wch, mvins_wch, mvwins_wch, wins_wch
+~-- add an array of complex characters (and attributes) to a curses window ::~- add_wchstr, add_wchnstr, wadd_wchstr, wadd_wchnstr, mvadd_wchstr, mvadd_wchnstr, mvwadd_wchstr, mvwadd_wchnstr 
+~-- create curses borders or lines using complex characters and renditions ::~- border_set, wborder_set, box_set, hline_set, whline_set, mvhline_set, mvwhline_set, vline_set, wvline_set, mvvline_set, mvwvline_set
+@WIDE CHARACTERS@
+~-- add a string of wide characters to a curses window and advance cursor ::~- addwstr, addnwstr, waddwstr, waddnwstr, mvaddwstr, mvaddnwstr, mvwaddwstr, mvwaddnwstr
+~-- get (or push back) a wide character from curses terminal keyboard ::~- get_wch, wget_wch, mvget_wch, mvwget_wch, unget_wch
+~-- get an array of wide characters from a curses terminal keyboard ::~- get_wstr, getn_wstr, wget_wstr, wgetn_wstr, mvget_wstr, mvgetn_wstr, mvwget_wstr, mvwgetn_wstr 
+~-- Get a wide character string and rendition from a cchar_t or set a cchar_t from a wide-character string ::~- getcchar, setcchar 
+~-- insert a wide-character string into a curses window ::~- ins_wstr, ins_nwstr, wins_wstr, wins_nwstr, mvins_wstr, mvins_nwstr, mvwins_wstr, mvwins_nwstr
+~-- get a string of wchar_t characters from a curses window ::~- inwstr, innwstr, winwstr, winnwstr, mvinwstr, mvinnwstr, mvwinwstr, mvwinnwstr
+
+@ASCII CHARACTERS@
+~-- add a character (with attributes) to a curses window, then advance the cursor ::~- addch, waddch, mvaddch, mvwaddch, echochar, wechochar 
+~-- delete character under the cursor in a curses window ::~- delch, wdelch, mvdelch, mvwdelch
+~-- delete and insert lines in a curses window ::~- deleteln, wdeleteln, insdelln, winsdelln, insertln, winsertln
+~-- get (or push back) characters from curses terminal keyboard ::~- getch, wgetch, mvgetch, mvwgetch, ungetch, has_key
+~-- insert a character before cursor in a curses window ::~- insch, winsch, mvinsch, mvwinsch
+~-- get a character and attributes from a curses window ::~- inch, winch, mvinch, mvwinch
+@STRINGS@
+~-- accept character strings from curses terminal keyboard ::~- getstr, getnstr, wgetstr, wgetnstr, mvgetstr, mvgetnstr, mvwgetstr, mvwgetnstr
+~-- print formatted output in curses windows ::~- printw, wprintw, mvprintw, mvwprintw, vwprintw, vw_printw
+~-- convert formatted input from a curses window ::~- scanw, wscanw, mvscanw, mvwscanw, vwscanw, vw_scanw
+~-- add a string of characters (and attributes) to a curses window ::~- addchstr, addchnstr, waddchstr, waddchnstr, mvaddchstr, mvaddchnstr, mvwaddchstr, mvwaddchnstr
+~-- add a string of characters to a curses window and advance cursor ::~- addstr, addnstr, waddstr, waddnstr, mvaddstr, mvaddnstr, mvwaddstr, mvwaddnstr
+~-- insert string before cursor in a curses window ::~- insstr, insnstr, winsstr, winsnstr, mvinsstr, mvinsnstr, mvwinsstr, mvwinsnstr
+~-- get a string of characters (and attributes) from a curses window ::~- inchstr, inchnstr, winchstr, winchnstr, mvinchstr, mvinchnstr, mvwinchstr, mvwinchnstr
+~-- get a string of characters from a curses window ::~- instr, innstr, winstr, winnstr, mvinstr, mvinnstr, mvwinstr, mvwinnstr
+@ATTRIBUTES@
+~-- curses character and window attribute control routines ::~- attroff, wattroff, attron, wattron, attrset, wattrset, color_set, wcolor_set, standend, wstandend, standout, wstandout, attr_get, wattr_get, attr_off, wattr_off, attr_on, wattr_on, attr_set, wattr_set, chgat, wchgat, mvchgat, mvwchgat, PAIR_NUMBER
+~-- curses color manipulation routines ::~- start_color, init_pair, init_color, has_colors, can_change_color, color_content, pair_content, COLOR_PAIR
+~-- use terminal's default colors ::~- use_legacy_coding 
+@WINDOWS@
+~-- clear all or part of a curses window ::~- erase, werase, clear, wclear, clrtobot, wclrtobot, clrtoeol, wclrtoeol
+~-- get curses cursor and window coordinates ::~- getyx, getparyx, getbegyx, getmaxyx
+~-- get curses cursor and window coordinates, attributes ::~- getattrs
+~-- refresh curses windows and lines ::~- doupdate, redrawwin, refresh, wnoutrefresh, wredrawln, wrefresh
+~-- overlay and manipulate overlapped curses windows ::~- overlay, overwrite, copywin
+~-- create curses windows ::~- newwin, delwin, mvwin, subwin, derwin, mvderwin, dupwin, wsyncup, syncok, wcursyncup, wsyncdown 
+~-- create and display curses pads ::~- newpad, subpad, prefresh, pnoutrefresh, pechochar, pecho_wchar
+~-- scroll a curses window ::~- scroll, scrl, wscrl
+~-- curses window properties ::~- is_cleared, is_idlok, is_idcok, is_immedok, is_keypad, is_leaveok, is_nodelay, is_notimeout, is_pad, is_scrollok, is_subwin, is_syncok
+~-- use terminal's default colors ::~- use_default_colors, assume_default_colors 
+XXXXXXXX:
+~-- curses refresh control routines ::~- touchwin, touchline, untouchwin, wtouchln, is_linetouched, is_wintouched
+~-- curses bell and screen flash routines ::~- beep, flash
+~-- curses window background manipulation routines ::~- bkgdset, wbkgdset, bkgd, wbkgd, getbkgd
+~-- create curses borders, horizontal and vertical lines ::~- border, wborder, box, hline, whline, vline, wvline, mvhline, mvwhline, mvvline, mvwvline
+
+~-- mouse interface through curses ::~- has_mouse, getmouse, ungetmouse, mousemask, wenclose, mouse_trafo, wmouse_trafo, mouseinterval
+
+~-- miscellaneous curses extensions ::~- curses_version, use_extended_names
+
+~-- curses screen initialization and manipulation routines ::~- initscr, newterm, endwin, isendwin, set_term, delscreen
+~-- curses input options ::~- cbreak, nocbreak, echo, noecho, halfdelay, intrflush, keypad, meta, nodelay, notimeout, raw, noraw, noqiflush, qiflush, timeout, wtimeout, typeahead
+
+~-- move curses window cursor ::~- move, wmove
+~-- ship binary data to printer ::~- mcprint
+~-- read (write) a curses screen from (to) a file ::~- scr_dump, scr_restore, scr_init, scr_set
+~-- curses soft label routines ::~- slk_attr_set, slk_attr_off, slk_attr, slk_color slk_init, slk_set, slk_wset, slk_refresh, slk_noutrefresh, slk_label, slk_clear, slk_restore, slk_touch, slk_attron, slk_attrset, slk_attroff, slk_attr_on,
+
+~-- curses environment query routines ::~- baudrate, erasechar, erasewchar, has_ic, has_il, killchar, killwchar, longname, term_attrs, termattrs, termname 
+~-- direct curses interface to the terminfo capability database ::~- PC, UP, BC, ospeed, tgetent, tgetflag, tgetnum, tgetstr, tgoto, tputs 
+~-- curses output options ::~- clearok, idlok, idcok, immedok, leaveok, setscrreg, wsetscrreg, scrollok, nl, nonl 
+~-- curses interfaces to terminfo database ::~- del_curterm, mvcur, putp, restartterm, set_curterm, setterm, setupterm, tigetflag, tigetnum, tigetstr, tiparm, tparm, tputs, vid_attr, vid_puts, vidattr, vidputs
+~-- low-level curses routines ::~- def_prog_mode, def_shell_mode, reset_prog_mode, reset_shell_mode, resetty, savetty, getsyx, setsyx, ripoffline, curs_set, napms
+~-- miscellaneous curses utility routines ::~- delay_output, filter, flushinp, getwin, key_name, keyname, nofilter, putwin, unctrl, use_env, use_tioctl, wunctrl 
+
+~-- curses thread support ::~- use_screen, use_window
+~-- curses debugging routines ::~- _tracef, _tracedump, _traceattr, _traceattr2, _nc_tracebits, _tracecchar_t, _tracecchar_t2, _tracechar, _tracechtype, _tracechtype2, _tracemouse, trace
+~-- curses memory-leak checking ::~- _nc_freeall _nc_free_and_exit
+
+~-- curses global variables ::~- COLORS, COLOR_PAIRS, COLS, ESCDELAY, LINES, TABSIZE, curscr, newscr, stdscr 
+
+~-- define a keycode ::~- define_key 
+~-- check if a keycode is defined ::~- key_defined 
+~-- return definition of keycode ::~- keybound 
+~-- enable or disable a keycode ::~- keyok 
+
+~-- curses terminfo global variables ::~- SP, acs_map, boolcodes, boolfnames, boolnames, cur_term, numcodes, numfnames, numnames, strcodes, strfnames, strnames, ttytype 
+
+~-- resize a curses window ::~- wresize
+~-- change the curses terminal size ::~- is_term_resized, resize_term, resizeterm 

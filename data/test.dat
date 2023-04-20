@@ -1,0 +1,624 @@
+
+  ###################################################################### 
+  # FIXEDFORM: Rapidly create easy-to-use TUI interfaces from Fortran. #
+  ######################################################################
+@EXPECTATIONS:@
+
+ If your program input could be specified on type-written forms and
+ instructions, it should be as easy to create that interface on a computer
+ as it would be to create those paper forms.
+    
+ That is what FIXEDFORM is designed to do.
+
+@OVERVIEW:@
+
+ FIXEDFORM  provides  for  quickly  creating  simple  TUIs (Terminal-based
+ User Interfaces).  Complex  radio  buttons  are  supported as well as
+ text input fields and menu buttons.
+ 
+ FIXEFORM is appropriate for tasks such as interactively editing command
+ line  arguments  to  a  command and  simple  data-input forms.
+ It also allows for easy construction and access to basic  instructions
+ for  supplying input  values.
+    
+ The FIXEDFORM user interface is intuitive and consistent, especially
+ for  Unix and  GNU/Linux  users  familar  with  utilities  such  as
+ the  vim(1) editor.
+
+ FIXEDFORM  can  be  called as a utility from practically any language,
+ or as a subroutine from Fortran.
+
+@PRINTED OUTPUT@
+
+ Snapshots of the formatted  input  forms  can  be  generated  as  simple  HTML
+ documents using built-in functions.
+
+@REQUIREMENTS:@
+
+ FIXEDFORM is a terminal-based utility that requires 
+  ^ the ncurses(3c) library 
+  ^ a C compiler 
+  ^ a Fortran compiler that supports the ISO_C_BINDING interface
+
+@INDEX:@
+
+    @o MAKING A FORM             @
+    @o USING A FORM              @
+    @o PROGRAM INTERFACE         @
+    @   o CHARACTER ARRAY        @
+    @   o NAMELIST               @
+    @   o ENVIRONMENTAL VARIABLES@
+    @   o CALCULATOR VARIABLES   @
+
+    
+@PROGRAMMING INTERFACE@
+ The  programming interface is especially intended to be convenient for Fortran
+ programs to use, which otherwise  often  run  only  in  command-line-interface
+ environments.  A  minimal  amount  of  time  is  required  to  begin  creating
+ applications that use it.  The forms are easily created using a text editor.
+
+
+@    The simplest use of FIXEDFORM is when a text file is used to define a     @
+@    form to be generated much like it could be drawn on paper:                @
+################################################################################
+#                                                                              #
+#  ~ A basic form definition:         ~  ^ RED                                 #
+#  ~ o Underlines become input fields ~  ^ WHITE                               #
+#  ~ o Up-carets become menu options  ~  ^ BLUE                                #
+#  ~ o Pound characters define boxes  ~                                        #
+#  ~ o Text otherwise displays as-is  ~  Connected by pound characters or      #
+#  ~   for the most part.             ~  adjacent to one another, up-carets    #
+#  Name:  ___________________            form a radio button.                  #
+#  Date:  ___________________            #######################               #
+#  Value: ___________________            ^      ^       ^      ^               #
+#                                       EAST   WEST   NORTH  SOUTH             #
+#                                                                              #
+# When the cursor is over a menu item it is toggled by pressing the space bar. #
+# A tab character moves to the next selectable item. Typing in an input value  #
+# changes the value. When the form is complete use the ctrl-S keys to submit.  #
+################################################################################
+ By  default  all  that  is  returned  when the ctrl-S key is entered
+ is a  character array composed of all the input fields, reading from
+ left to right first and then down the form.  A  selected  menu  item
+ returns  a  T character, otherwise it returns an F character. For larger
+ forms with more than one selection per line it becomes  difficult  to
+ ensure  which value  goes with  which  entry so you have to get more
+ complicated. But for a small basic form that's pretty much it.
+
+ ~SUMMARY OF BASIC RULES FOR CREATING A FORM:~
+
+       @INPUT FIELDS@
+          ~ o Underlines become one-line input fields            ~
+          ~ o Up-carets become clickable menu options            ~
+          ~   When adjacent to a single row or column of pound   ~
+          ~   characters they act as a radio button. The pound   ~
+          ~   characters will display as connecting lines.       ~
+
+       @DISPLAY OPTIONS@
+          ~ o Adjacent pound characters define boxes             ~
+          ~   (Single pound characters display as a pound symbol)~
+          ~ o Text between tilde characters is in reverse-video  ~
+          ~ o Text between at characters has a green background  ~
+          ~ o Backslashes can be used for shadowing              ~
+          ~ o Other text displays as-is as white text on a black ~
+          ~   background.                                        ~
+
+   ~######################~   `AA``BB``CC``DD``EE``FF``GG``HH`
+   ~#   January 2015     #~\  `II``JJ``KK``LL``MM``NN``OO``PP`
+   ~######################~\  `QQ``RR``SS``TT``UU``VV``WW``XX`
+   ~#Su#Mo#Tu#We#Th#Fr#Sa#~\  `YY``ZZ`
+   ~######################~\   grave pairs -- Letter after first grave sets 
+   ~#  #  #  #  # 1# 2# 3#~\                  color pair
+   ~# 4# 5# 6# 7# 8# 9#10#~\                                                                 
+   ~#11#12#13#14#15#16#17#~\              
+   ~#18#19#20#21#22#23#24#~\
+   ~#25#26#27#28#29#30#31#~\   back-slash -- colored character cell for
+   ~######################~\                 shading
+    \\\\\\\\\\\\\\\\\\\\\\\\
+
+################################################################################
+# @LIMITATIONS ON USING POUND CHARACTERS:@                                     #
+# Note that the lines defined by pound characters need separated by non-pounds #
+# to behave as described, and that only a single row or column should be used  #
+# to define a radio-button menu. The ABCDEF menu is NOT a radio button because #
+# it has "o" breaks in the boxes between the box and the menu options.         #
+#                                              ##############################  #
+#                                              # Pick all the true choices  #  #
+#                  ######################      o#####o#####o#####o#####o####o  #
+#   ^`ARED  `      ^      ^      ^      ^      #     #     #     #     #    #  #
+#   ^`PWHITE`     TUE    WED    THU    FRI     ^     ^     ^     ^     ^    ^  #
+#   ^`DBLUE `                                  A     B     C     D     E    F  #
+#                                                                              #
+#                                                                              #
+#  #^TOP          An up-caret makes a button. Connected with pound-characters  #
+#  #^MIDDLE       they act as a group of radio buttons.                        #
+#  #^BOTTOM                               ^^^^^^^^^^      ^####^####^####^     #
+#                   ^##^##^##^##^         0123456789      #  # #    # #  #     #
+#                   1  2  3  4  5                         #  # #    # #  #     #
+#                                                         ^##^ ^####^ ^##^     #
+#                                                                              #
+################################################################################
+
+ There is a fixed function key panel at the bottom and a fixed message line.
+ The rest of the screen is a scrollable area reserved for the form.
+
+@THE FUNCTION KEYS AND BOXES:@
+
+ PgUp and PgDn, Home, Help, End and Enter buttons at the screen bottom
+ act in an intuitive fashion. The PgUp and PgDn boxes page thru large forms
+ from top to bottom. The Home box puts the upper right corner of the form
+ in the upper right corner of the scrolling region.  The Help box displays
+ any help pages defined for the form. The End box ends the program. The
+ Enter box submits the form data back to the calling program for processing.
+          ~ o The tab key goes to next input selection.          ~
+
+################################################################################
+@SCROLLING THE FORM REGION:@
+
+ If the terminal is big enough to display the entire form you don't have
+ to know how to scroll it (and at least for an xterm(1) window the program
+ will adjust to the terminal window being resized). But if~the form does
+ not fit in the terminal~you have many ways to scroll the visible subsection
+ of the form....
+
+  o The arrow keys do what you expect and move the cursor until they get to
+    the screen edge. Attempting to move past the screen edges scrolls the
+    form region.
+   
+  o The shifted arrow keys also cause screen scrolling.
+    
+  o In addition, the following ctrl-keys smooth-scroll the form display window:
+   
+      o PgUp or ctrl-B (Backward) -- 1 screen up
+      o PgDn or ctrl-F (Forward)  -- 1 screen down
+      o ctrl-U (Up)               -- 1/2 screen up
+      o ctrl-D (Down)             -- 1/2 screen down
+   
+         @SMOOTH SCROLLING@
+              ctrl-Y            
+                #               
+       ctrl-L ##### ctrl-R     
+                #
+              ctrl-E 
+################################################################################
+@CURSOR MOVEMENT:@
+
+The cursor is moved with the arrow keys or by toggling on vi-mode. In vi-mode
+the j,k,l,m keys move the cursor as they do in the vi(1) editor until ctrl-v
+is re-entered.
+
+The Home key places the top right corner of the form in the top right corner
+of the form display region and puts the cursor at the corner.
+
+The Tab key or ctrl-N moves to the next selectable field.
+The Backtab (ie. shifted Tab) key or ctrl-P moves to the previous
+selectable field.
+################################################################################
+@VI MODE@
+
+The ESCAPE key toggles vi(1) mode. ctrl-V always puts you in vi(1) mode. You are
+in vi(1) mode everywhere except underlined text input fields by default.
+
+ctrl-N or n or tab       -- go to next input field
+ctrl-P or p or shift-tab -- go to previous input field
+0                        -- beginning of line
+g                        -- top of form
+hjkl                     -- move cursor
+
+i or insert              -- insert mode in underlined field
+                            insert key or ESC key or anything other than a
+			    regular character, delete, arrow keys ends insert 
+			    mode.
+x or delete              -- delete character in underlined field
+r                        -- replace mode in underlined field
+                            This is the default mode when not in vi(1) mode.
+			    ESCAPE will exit and leave you where you are.
+################################################################################
+@WORKING NOTES@
+                  __          ____
+                    ______  _  __  _____ ________________________________
+_____  _____
+  jump to links. Possibly assume anything highlighted with "at" is jumped to a 
+  matching string with /. Started making / find strings, need to finish cursor positioning
+  Maybe simple mode for command line arguments:
+    name:prompt:input_type_function:validation rules or macro
+  Maybe two windows, one for input fields and another for help, and jump to help
+  as-is input for reading in command output (via a process pipe?) as help text or
+  to call another utility to generate a form?
+################################################################################
+ .assign
+ Setting colors; especially background color. Read as defining form, just one
+ pass?
+.setattr("!",12) set "!" as a delimiter for color pair 12
+.background(2)
+ .test
+@FIELDNAME@
+or . lines with names on them that can be placed under input fields, although this
+breaks up the what-you-see-is-what-you-get aspect of a form
+
+Maybe |list of names at end of line to name fields on that line left to right
+
+Define a menu as a single entity (name given to top left-most option) and give
+an array back of strings or True/False values instead of returning each menu button?
+
+ Use calculator and GPF modules to make a .verify. section so checks can be made.
+
+If identify type of input field, maybe a calculator and calendar widget
+to assist in input.  Maybe a pull-down menu with the menu items could
+be defined with calculator expressions
+or a
+   .menu,NAME
+   item1
+   item2
+   item3
+option.
+
+.notes
+.form.
+  Maybe - and | for box edges so box lines can be adjacent to one another. A
+  pound would be just for an intersection. The characters look enough like
+  the box characters to let them print as box characters.
+
+.help.
+ TO-DO:
+ o make input work
+ o make the help key context sensitive
+ o mouse support
+ o make help windows pop up in a middle region as scrollable or as a
+   separate pad.
+ o make an example utility that could be called from other programs that
+   writes out data in a NAMELIST format.
+ o printing or translating of form
+ o Allow more use of color. Maybe something like
+   #`AColor Pair A`# Color Pair A#
+   #`BColor Pair B`# Color Pair B#
+   #`CColor Pair C`# Color Pair C#
+   #`DColor Pair D`# Color Pair D#
+   #`EColor Pair E`# Color Pair E#
+   #`FColor Pair F`# Color Pair F#
+   #`GColor Pair G`# Color Pair G#
+   #`JColor Pair J`# Color Pair J#
+   #`IColor Pair I`# Color Pair I#
+   #`JColor Pair J`# Color Pair J#
+   #`KColor Pair K`# Color Pair K#
+   #`LColor Pair L`# Color Pair L#
+   #`MColor Pair M`# Color Pair M#
+   #`NColor Pair N`# Color Pair N#
+   #`OColor Pair O`# Color Pair O#
+   #`PColor Pair P`# Color Pair P#
+   #`QColor Pair Q`# Color Pair Q#
+   #`RColor Pair R`# Color Pair R#
+   #`SColor Pair S`# Color Pair S#
+   #`TColor Pair T`# Color Pair T#
+   #`UColor Pair U`# Color Pair U#
+   #`VColor Pair V`# Color Pair V#
+   #`WColor Pair W`# Color Pair W#
+   #`XColor Pair X`# Color Pair X#
+   #`YColor Pair Y`# Color Pair Y#
+   #`ZColor Pair Z`# Color Pair Z#
+
+ o If the field you tab to is not visible auto-scrolling should place it
+   in the visible panel area.
+
+
+.help,field1.
+.help,field2.
+.help,field3.
+.form. $bck="red" $fore="yellow"
+
+ Add background and foreground color support.
+
+ NCURSES ASSUMED COLORS
+
+   Override   the  compiled-in  assumption  that  the terminal's  default
+   colors  are  white-on-black  (see default colors(3X)).  You may set
+   the foreground and background color values with this  environment
+   variable  by proving a 2-element list: foreground,background.
+   For example, to tell ncurses to not assume anything about the
+   colors, set this to "-1,-1".  To make it green-on-black, set it to
+   "2,0".   Any  positive value from zero to the terminfo max colors
+   value is allowed.
+
+Should buttons at bottom be user-defined or part of program so can do operations
+without returning to user?
+
+Add "print" button?
+
+
+Function keys at bottom not implemented so far.
+
+Output modes:
+string array
+NAMELIST output
+Option to write out fields in-place into an ASCII file;so looks like form
+Option to write out in a format that can then be editted and loaded back in
+names given
+set color pairs
+boxes could include | and = so could be adjacent to one another without connecting
+an escape of reserved characters, or define them with a command?
+
+Integrate with command line parser and expression parser.
+Allow for automatic generation of an input panel for command line options
+
+Pop-up calculator and calendar for numeric value input and date fields
+SQLite3 interface to make simple database interfaces. Automatic mode for schema
+Make an array browser for looking at numeric values in running programs
+
+################################################################################
+#  @BACKGROUND COLOR:@________________                                         #
+#  @FOREGROUND COLOR:@________________     ~##Set xterm(1) options:##########~ #
+#  @CURSOR COLOR:@    ________________     ~#                               #~ #
+#   BG FG CS                               ~#                               #~ #
+#   #^ #^ #^ `aRED   `                     ~#                               #~ #
+#   #^ #^ #^ `bGREEN `                     ~#                               #~ #
+#   #^ #^ #^ `cGRAY  `                     ~#                               #~ #
+#   #^ #^ #^ `dWHITE `                     ~#                               #~ #
+#   #^ #^ #^ `eBLACK `                     ~#                               #~ #
+#   #^ #^ #^ `fYELLOW`                     ~#################################~ #
+#   #^ #^ #^ `gBROWN `                                                         #
+#              ##############################################################  #
+#  @FONT SIZE:@^6 ^7 ^8 ^9^10^11^12^13^14^15^16^17^18^19^20^21^22^23^24^25^26  #
+#                                                                              #
+#                     #################                        ##############  #
+#  @WIDTH: @_____ or  #  ^  ^  ^   ^  #      @HEIGHT:@_____ or # ^  ^  ^  ^ #  #
+#                     # 72 80 128 132 #                        # 24 32 40 60#  #
+#                     #################                        ##############  #
+#                                                                              #
+################################################################################
+
+set with xterm(1) command options:
+
+set with the esc(1) command:
+
+set with X11 Windows resources (as XTerm or user-defined name):
+
+@COMMAND OPTION INTERFACES:@
+
+@x:@________________________________________________________________________________________________________________________________
+@y:@________________________________________________________________________________________________________________________________
+@filename:@_________________________________________________________________________________________________________________________
+.comment
+.overprint attributes by number
+.define menu list?
+################################################################################
+#                                                                              #
+# ####### ~Concept of a fixed-size form.   ~                                   #
+# #8#1#6# ~Underlines become input fields. ~      #   #        #######         #
+# #3#5#7# ~Pound characters define boxes   ~      ## ##        #######         #
+# #4#9#2# ~Text displays as-is             ~      #   #        #######         #
+# #######        #Name:  ___________________#       #                          #
+#                #Value: ___________________#     #####        # # # #         #
+#                #Date:  ___________________#                   # # #          #
+# What about scrolling regions?                                                #
+################################################################################
+#                                                                              #
+# #####################################    @\\\\\\\\\\\\\\\\\\\\\\\\\\\\\@     #
+# #       #         #        #        #     Exit: ^Q or F3 or ^C or ESC        #
+# #####################################     Tab: goes to next field            #
+# #       #         #        #        #     Enter: Enter Key                   #
+# #####################################    @\\\\\\\\\\\\\\\\\\\\\\\\\\\\\@     #
+#                   Define function key boxes, color, attributes               #
+################################################################################
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+       ############  ############  ###########  ###########  ############
+       #~  NEXT  ~#  #~PREVIOUS~#  #~       ~#  #~       ~#  #~        ~#
+       #~  PAGE  ~#  #~  PAGE  ~#  #~ QUIT  ~#  #~ HELP  ~#  #~ ENTER  ~#
+       ############  ############  ###########  ###########  ############
+
+################################################################################
+ make a fixed function key panel at the bottom and a fixed message line
+ make the help key context sensitive
+ .form.
+ .help.
+ Fixed-size forms (just like a page of paper, no submenus as of yet).
+    o underlines become an input field
+    o pound characters define boxes (An isolated pound prints as a pound.)
+    o tilde define beginning and end of inverse regions, must be in matched pairs
+    o at character makes inverse colored blanks
+    o backslash becomes colored space
+    o tab key goes to next underlined region or button (on current
+      page? auto-scroll? wrap-around?).
+    o shift-tab key goes to previous underlined region or button (on
+      current page? auto-scroll? wrap-around?).
+    o Up-caret makes a button. Connect them with pound-characters to
+      make them act as a group of radio buttons.
+    o arrow keys move cursor around screen
+
+ pgup, pgdn, ^F, ^B, ^U, ^D, ^E, ^Y act like in vi(1)/vim(1)
+################################################################################
+
+ .help,field1.
+ .help,field2.
+ .help,field3.
+################################################################################
+
+ <0,0>
+   ############################################################################
+   #                                                                          #
+   #                                                                          #
+   #                                                                          #
+   #                                                                          #
+   #             <> cursor                                                    #
+   #                                                                          #
+   #                                                                          #
+   #                                                                          #
+   #                                                                          #
+   #                           Main Screen (maps 1-1 to stdscr)               #
+   #                                                                          #
+   #                                                                          #
+   #  @#####################@                                                 #
+   #  @# A "window" is a   #@                                                 #
+   #  @# subregion of the  #@                                                 #
+   #  @# screen. It can    #@                                                 #
+   #  @# extend off-screen #@                                                 #
+   #  @#####################@                                                 #
+   #                                                                          #
+   ############################################################################
+                                                                         <LINES-1,COLS-1>
+                                                                         call getyx(stdscr,LINES,COLS)
+
+   SCREENS:
+   The actual screen(s)
+   WINDOW:
+      stdscr  (maps to the actual display)
+      other windows
+
+         subwindows
+      pads  (can be bigger than a screen, with a section mapped to a window (a screen subregion)
+
+   There is one physical cursor on the screen, but each window has a "current position" that
+   is also a cursor position (which has to be refreshed to display where expected on the hardware)
+
+   cells contain a character, a color pair, and attributes. The cell information is either in a
+   long integer in traditional routines or in a structure in newer routines.
+
+#...................................................................................................................................
+#..........................................................................#........................................................
+#..........................................................................##.......................................................
+#..........................................................................#........................................................
+#.......................................................................#######.....................................................
+#.....................................................................#########.....................................................
+#......................................................................#########....................................................
+#......................................................................#########....................................................
+#......................................................................##########...................................................
+#.....................................................................##########....................................................
+#......................................................................#########....................................................
+#.......................................................................#######.....................................................
+#........................................................................#####......................................................
+#...................................................................#############...................................................
+#..............................................................#.###################...#............................................
+#.....................................................#.#......#########################............................................
+#......................................................###...############################...........................................
+#.....................................................####.###############################....####..................................
+#......................................................#####################################.#####..................................
+#........................................................#########################################..................................
+#......................................................##########################################...................................
+#....................................................##########################################.....................................
+#....................................................###########################################....................................
+#................................................##.#############################################...................................
+#................................................################################################...................................
+#..................................................###############################################..................................
+#.................................................#################################################.................................
+#................................................##################################################.#...............................
+#..............................................#######################################################..............................
+#...............................................###################################################.#...............................
+#..............................................#####################################################................................
+#..............................#..............######################################################................................
+#.......................#......#...............#####################################################................................
+#......................###.#########.........#######################################################................................
+#.......................#.###########.........########################################################..............................
+#.......................################.....#######################################################................................
+#.....................###################....#######################################################................................
+#...................#.###################....#######################################################................................
+#....................#####################...########################################################...............................
+#...................######################..########################################################................................
+#...................#######################.########################################################................................
+#...................#######################.#######################################################.................................
+#..................###############################################################################..................................
+#.............####.###############################################################################..................................
+#............###################################################################################....................................
+#......#...###################################################################################......................................
+#............###################################################################################....................................
+#.............####.###############################################################################..................................
+#..................###############################################################################..................................
+#...................#######################.#######################################################.................................
+#...................#######################.########################################################................................
+#...................######################..########################################################................................
+#....................#####################...########################################################...............................
+#...................#.###################....#######################################################................................
+#.....................###################....#######################################################................................
+#.......................################.....#######################################################................................
+#.......................#.###########.........########################################################..............................
+#......................###.#########.........#######################################################................................
+#.......................#......#..............######################################################................................
+#..............................#..............######################################################................................
+#..............................................#####################################################................................
+#...............................................###################################################.#...............................
+#..............................................#######################################################..............................
+#................................................##################################################.#...............................
+#.................................................#################################################.................................
+#..................................................###############################################..................................
+#................................................################################################...................................
+#................................................##.#############################################...................................
+#....................................................###########################################....................................
+#....................................................##########################################.....................................
+#......................................................##########################################...................................
+#........................................................#########################################..................................
+#......................................................#####################################.#####..................................
+#.....................................................####.###############################....####..................................
+#......................................................###...############################...........................................
+#.....................................................#.#......#########################............................................
+#..............................................................#.###################...#............................................
+#.................................................................#.#############...................................................
+#........................................................................#####......................................................
+#.......................................................................#######.....................................................
+#......................................................................########.....................................................
+#.....................................................................##########....................................................
+#......................................................................##########...................................................
+#......................................................................#########....................................................
+#......................................................................#########....................................................
+#.....................................................................#########.....................................................
+#.......................................................................#######.....................................................
+#..........................................................................#........................................................
+#..........................................................................##.......................................................
+#..........................................................................#........................................................
+#...................................................................................................................................
+
+
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+
+################################################################################
+################################################################################
+################################################################################
+
+################################################################################
+################################################################################
+
+################################################################################
+
+################################################################################
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+################################################################################
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+################################################################################
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+################################################################################
+
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^#^
+

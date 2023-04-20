@@ -1,0 +1,25 @@
+Virtual Space -- starts at 0,0 positive Y down and positive X to the right
+      V          No negative locations exist in virtual space. Extends up
+      V          to the size a INTEGER(C_INT) variable can hold
+      V
+ <0,0>################################################################
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      #                                                              #
+      ################################################################<Y=LINES,X=ROWS>
