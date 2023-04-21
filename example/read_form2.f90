@@ -1,10 +1,15 @@
 program fifo
 !(LICENSE:PD)
-   use M_kracken
-   use M_fixedform
-   character(255) filename
-   character(len=20) :: device
-   logical lval
+use M_kracken
+use M_fixedform
+implicit none
+character(255) filename
+character(len=20) :: device
+integer :: ier
+integer :: iflen
+integer :: ival
+logical :: lval
+real :: rval
 !  define command arguments, default values
 !  and crack command line
    call kracken('cmd','-i 10 -r 10e3 -l .false. -f test.dat -d x11')

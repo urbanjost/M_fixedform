@@ -14,21 +14,22 @@ homepage = "https://github.com/janedoe/M_fixedform"
 auto-executables = true
 auto-tests = true
 auto-examples = true
+
 # new default with v0.8.0
 # force module naming rules to avoid collisions with other packages
 #module-naming = true
 # traditional where user can use any module name
-module-naming = false
+#module-naming = false
 
 # new section with v0.8.0
-[fortran]
+#[fortran]
 #implicit-typing = false
 #implicit-external = false
 #source-form = "free"
 # traditional pre-version8 compatibility
-implicit-typing = true
-implicit-external = true
-source-form = "default"
+#implicit-typing = true
+#implicit-external = true
+#source-form = "default"
 
 [install]
 library = false

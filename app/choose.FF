@@ -6,7 +6,7 @@
 !
 ! NOTE: Assuming at least an 80x24 character window
 !-----------------------------------------------------------------------------------------------------------------------------------
-module m_simple_key
+module M_fixedform__simple_key
 use iso_fortran_env, only : ERROR_UNIT        ! access computing environment
 use M_strings, only : upper
 use M_ncurses
@@ -37,12 +37,12 @@ subroutine print_menu(menu_win, highlight)                        ! draw a menu 
    ierr=wrefresh(menu_win)                                            ! post everything to the real screen
 end subroutine print_menu
 !-----------------------------------------------------------------------------------------------------------------------------------
-end module m_simple_key
+end module M_fixedform__simple_key
 !-----------------------------------------------------------------------------------------------------------------------------------
 program simple_key
 use M_kracken, only : kracken, sgets, lget, sget, iget
-use m_simple_key
-use m_time, only : system_sleep
+use M_fixedform__simple_key
+use M_time, only : system_sleep
 implicit none
 type (C_PTR)                 :: menu_win
 integer                      :: highlight = 1
@@ -220,7 +220,7 @@ character(len=:),allocatable :: default
    endif
    ierr=endwin()      ! exit curses mode
    write(ERROR_UNIT,'(a)',advance='no') trim(choices(choice-1))
-end program simple_key
+contains
 !-----------------------------------------------------------------------------------------------------------------------------------
 subroutine numbers()
    use M_ncurses
@@ -351,5 +351,4 @@ HOME PAGE:      http://www.urbanjost.altervista.org/index.html
 $BLOCK
 $!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 !-----------------------------------------------------------------------------------------------------------------------------------
-$BLOCK NULL
-$BLOCK
+end program simple_key

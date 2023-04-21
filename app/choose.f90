@@ -10,12 +10,12 @@ module M_fixedform__simple_key
 use iso_fortran_env, only : ERROR_UNIT        ! access computing environment
 use M_strings, only : upper
 use M_ncurses
-implicit none
-character(len=:),allocatable :: choices(:)
-integer           :: n_choices                                                                  ! number of choices in menu
+   character(len=:),allocatable :: choices(:)
+   integer           :: n_choices                                                                  ! number of choices in menu
 contains
 !-----------------------------------------------------------------------------------------------------------------------------------
 subroutine print_menu(menu_win, highlight)                        ! draw a menu using the list in choices(), highlighting one choice
+   implicit none
    type(C_PTR)         :: menu_win                                ! this is the subwindow to draw in
    integer             :: highlight                               ! this says which choice description to highlight
    integer,save        :: x=2                                     ! x position relative to left edge of subwindow to print choices
@@ -42,7 +42,7 @@ end module M_fixedform__simple_key
 program simple_key
 use M_kracken, only : kracken, sgets, lget, sget, iget
 use M_fixedform__simple_key
-use m_time, only : system_sleep
+use M_time, only : system_sleep
 implicit none
 type (C_PTR)                 :: menu_win
 integer                      :: highlight = 1
@@ -220,13 +220,11 @@ character(len=:),allocatable :: default
    endif
    ierr=endwin()      ! exit curses mode
    write(ERROR_UNIT,'(a)',advance='no') trim(choices(choice-1))
-end program simple_key
+contains
 !-----------------------------------------------------------------------------------------------------------------------------------
 subroutine numbers()
-use M_ncurses
-character(len=3)   :: label
-integer :: i
-integer :: ierr
+   use M_ncurses
+   character(len=3)   :: label
    do i=0,999   ! label up to 1000 rows of the main screen with a number on the left edge
       write(label,'(i3.3)')i
       ierr=mvaddstr(i, 0, trim(label)//C_NULL_CHAR)
@@ -477,10 +475,11 @@ help_text=[ CHARACTER(LEN=128) :: &
 '@(#)VERSION:        1.0, 20180331>',&
 '@(#)AUTHOR:         John S. Urban>',&
 '@(#)HOME PAGE:      http://www.urbanjost.altervista.org/index.html>',&
-'@(#)COMPILED:       2023-04-21 08:13:52 UTC-240>',&
+'@(#)COMPILED:       2023-04-21 10:32:15 UTC-240>',&
 '']
    WRITE(*,'(a)')(trim(help_text(i)(5:len_trim(help_text(i))-1)),i=1,size(help_text))
    stop ! if --version was specified, stop
 endif
 end subroutine help_version
 !-----------------------------------------------------------------------------------------------------------------------------------
+end program simple_key
