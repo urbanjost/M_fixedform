@@ -4,6 +4,10 @@
    with Ncurses from Fortran. That is it facilitates creating simple
    forms in terminal windows.
 
+###  Required dependencies ...
+   Requires the M_ncurses module and for the ncurses library to be available
+   on the system.
+
 ## ![M_fixedform](docs/images/M_fixedform.gif)
 
    The idea of **M_fixedform** is based on fuzzy memories of the
