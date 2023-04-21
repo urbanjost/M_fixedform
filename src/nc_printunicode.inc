@@ -1,14 +1,12 @@
 !-----------------------------------------------------------------------------------------------------------------------------------
 !<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>-
 !-----------------------------------------------------------------------------------------------------------------------------------
-subroutine nc_printescape(win,filename)
+subroutine nc_printunicode(win,filename)
 ! @(#) plain text print reading window from ncurses
 !! write as HTML or ANSI escape codes per ansi2html(1) script
 !! maybe look in original page data instead like loaddata(3f)
 !! what about alternate characters like box characters ?
 !! could newterm(3c) be used to set to a file instead of a terminal to capture escape sequences and ensure they are VT102 commands?
-   use M_ncurses
-   implicit none
 !-----------------------------------------------------------------------------------------------------------------------------------
    type(C_PTR),intent(in)       :: win          ! window to print
    character(len=*),intent(in)  :: filename     ! filename to print to
@@ -116,4 +114,4 @@ subroutine nc_printescape(win,filename)
       write(iout)NEW_LINE('a')
    enddo
 !-----------------------------------------------------------------------------------------------------------------------------------
-end subroutine nc_printescape
+end subroutine nc_printunicode

@@ -6,8 +6,8 @@ NAME
     (LICENSE:PD)
 
 SYNOPSIS
-   use :: M_fixedform, only : icount_ptr,page_ptr,page_pd,icount_pd
-   use :: M_fixedform, only : fixedform ,loaddata
+     use :: M_fixedform, only : icount_ptr,page_ptr,page_pd,icount_pd
+     use :: M_fixedform, only : fixedform ,loaddata
 
 DESCRIPTION
    M_fixedform(3fm) takes a text block as input, and converts it
@@ -229,35 +229,46 @@ use M_ncurses, only : key_ssuspend,  key_stab,    key_sundo,    key_suspend,   k
 use M_framework__journal, only : journal
 implicit none
 private
-   integer,parameter :: pg_lines=2000, pg_columns=256          ! upper limits for user input file data
-   character(len=pg_columns)         :: mesg                    ! message to appear in status bar
-   type(C_PTR)                       :: big_pd
-   character(len=pg_columns),target  :: page_pd(pg_lines)=' '  ! array to hold user definition of form
+integer,parameter :: pg_lines=2000, pg_columns=256          ! upper limits for user input file data
+character(len=pg_columns)         :: mesg                    ! message to appear in status bar
+type(C_PTR)                       :: big_pd
+character(len=pg_columns),target  :: page_pd(pg_lines)=' '  ! array to hold user definition of form
 
-   integer(C_INT)                    :: pad_corner_x=0, pad_corner_y=0   ! upper left-hand corner of rectangle displayed in pad
-   integer                           :: displaywidth_pd=0      ! width of section of pad displayed on screen
+integer(C_INT)                    :: pad_corner_x=0, pad_corner_y=0   ! upper left-hand corner of rectangle displayed in pad
+integer                           :: displaywidth_pd=0      ! width of section of pad displayed on screen
 
-   integer,save                      :: button_lines=4         ! number of lines used for buttons and message field
-   integer,save                      :: button_boxes(5,4)
-   logical                           :: G_submitted
-   character(len=:),allocatable      :: G_answers
+integer,save                      :: button_lines=4         ! number of lines used for buttons and message field
+integer,save                      :: button_boxes(5,4)
+logical                           :: G_submitted
+character(len=:),allocatable      :: G_answers
 
-   character(len=pg_columns),pointer :: page_ptr(:)            ! user data to convert from input to window
-   integer,pointer                   :: icount_ptr             ! pointer to line count of data to convert from input to window
-   integer,target                    :: icount_pd              ! number of last line of data used in page_pd(*)
-   integer                           :: longline_pd            ! number of longest line of data used in page_pd(*)
+character(len=pg_columns),pointer :: page_ptr(:)            ! user data to convert from input to window
+integer,pointer                   :: icount_ptr             ! pointer to line count of data to convert from input to window
+integer,target                    :: icount_pd              ! number of last line of data used in page_pd(*)
+integer                           :: longline_pd            ! number of longest line of data used in page_pd(*)
 
-   public icount_ptr
-   public page_ptr
-   public page_pd
-   public icount_pd
-   public longline_pd
-   public fixedform
-   public loaddata
+public icount_ptr
+public page_ptr
+public page_pd
+public icount_pd
+public longline_pd
+public fixedform
+public loaddata
 !-----------------------------------------------------------------------------------------------------------------------------------
 !<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>-
 !-----------------------------------------------------------------------------------------------------------------------------------
+public :: nc_errmessage
+public :: nc_printescape
+public :: nc_printhtml
+public :: nc_printunicode
+
 contains
+
+include "nc_errmessage.inc"
+include "nc_printescape.inc"
+include "nc_printhtml.inc"
+include "nc_printunicode.inc"
+
 subroutine fixedform(tabs)
    character(len=:),allocatable,optional,intent(out) :: tabs
 !-----------------------------------------------------------------------------------------------------------------------------------

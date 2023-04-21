@@ -2,8 +2,6 @@
 !<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>-
 !-----------------------------------------------------------------------------------------------------------------------------------
 subroutine nc_printhtml(win,filename) ! @(#) print ncurses(3c) window as HTML
-   use M_ncurses
-   implicit none
 !-----------------------------------------------------------------------------------------------------------------------------------
    type(C_PTR),intent(in)       :: win          ! window to print
    character(len=*),intent(in)  :: filename     ! filename to print to
@@ -62,19 +60,20 @@ call ln('.PAIR0{ color: #FFFFFF; background-color: #000000; }')
 call ln('.RPAIR0{ color: #000000; background-color: #FFFFFF; }')
 
 call getcolor(COLORS,COLOR_PAIRS) !! extension to get these set
+COLOR_PAIRS=min(COLOR_PAIRS,4096) !! after last upgrade this starts failing on large values
 
-do pair=0_C_SHORT,COLOR_PAIRS
+do pair=0_C_SHORT,COLOR_PAIRS-1_C_SHORT
    !! even when color not defined did not get an error value back
    ierr=pair_content(pair,fg,bg)            ! find out how a given color-pair is currently defined
    ierr=color_content(fg,rf,gf,bf)          ! extract red, green, and blue components in an initialized color
    ierr=color_content(bg,rb,gb,bb)          ! extract red, green, and blue components in an initialized color
-   if(fg+bg+rf+gf+bf+bg+rb+gb+bb.ne.0)then     !! assume this means not defined
-      rf=rf*255/1000   ! the colors are in the range 0 to 1000 inclusive, want a two-digit hex value
-      gf=gf*255/1000
-      bf=bf*255/1000
-      rb=rb*255/1000
-      gb=gb*255/1000
-      bb=bb*255/1000
+   if(fg+bg+rf+gf+bf+bg+rb+gb+bb.ne.0_C_SHORT)then     !assumption! assume this means not defined
+      rf=rf*255_C_SHORT/1000_C_SHORT   ! the colors are in the range 0 to 1000 inclusive, want a two-digit hex value
+      gf=gf*255_C_SHORT/1000_C_SHORT
+      bf=bf*255_C_SHORT/1000_C_SHORT
+      rb=rb*255_C_SHORT/1000_C_SHORT
+      gb=gb*255_C_SHORT/1000_C_SHORT
+      bb=bb*255_C_SHORT/1000_C_SHORT
       write(colordef,'(".PAIR",i0,"{ color: #",z2.2,z2.2,z2.2,"; background-color: #",z2.2,z2.2,z2.2,"; }")')pair,rf,gf,bf,rb,gb,bb
       write(iout)colordef
       write(iout)new_line('a')
@@ -205,10 +204,12 @@ call ln('<pre>')
    call ln('</html>')
    endfile(unit=iout,iostat=ios,iomsg=msg) ! make sure file is truncated or longer old files may leave data in file
 contains
+
 subroutine ln(string)
-   implicit none
-   character(len=*) :: string
+implicit none
+character(len=*) :: string
    write(iout)string
    write(iout)new_line('a')
-   end subroutine ln
+end subroutine ln
+
 end subroutine nc_printhtml
