@@ -261,6 +261,7 @@ public :: nc_errmessage
 public :: nc_printescape
 public :: nc_printhtml
 public :: nc_printunicode
+public :: nc_printplain
 
 contains
 
@@ -268,6 +269,7 @@ include "nc_errmessage.inc"
 include "nc_printescape.inc"
 include "nc_printhtml.inc"
 include "nc_printunicode.inc"
+include "nc_printplain.inc"
 
 subroutine fixedform(tabs)
    character(len=:),allocatable,optional,intent(out) :: tabs

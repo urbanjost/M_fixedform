@@ -34,6 +34,10 @@ auto-examples = true
 [install]
 library = false
 
+[library]
+source-dir = "src"
+include-dir = "src/inc"
+
 # example
 #[[test]]
 #name="runTests"
