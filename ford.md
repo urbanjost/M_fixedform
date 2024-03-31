@@ -6,11 +6,11 @@ src_dir: src
 output_dir: docs/fpm-ford
 project: M_fixedform
 summary: M_fixedform project
-project_github: https://github.com/johndoe/M_fixedform
-project_download:
-author: John Doe
-author_email: johndoe@gmail.com
-github: https://github.com/johndoe/M_fixedform
+project_github: https://github.com/urbanjost/M_fixedform
+project_download: https://github.com/urbanjost/M_fixedform/archive/refs/heads/master.zip
+author: John S Urban
+author_email: urbanjost@comcast.net
+github: https://github.com/urbanjost/M_fixedform
 media_dir: docs/images
 exclude_dir: archive
              FODDER

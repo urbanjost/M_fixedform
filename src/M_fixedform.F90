@@ -191,8 +191,9 @@ module M_fixedform
 use,intrinsic :: iso_fortran_env
 use,intrinsic :: ISO_C_BINDING
 use M_ncurses
-use M_ncurses, only : A_ATTRIBUTES, A_UNDERLINE, A_ALTCHARSET, A_CHARTEXT
-use M_ncurses, only : A_CHARTEXT,A_ATTRIBUTES
+use M_ncurses, only : A_UNDERLINE
+use M_ncurses, only : A_CHARTEXT
+use M_ncurses, only : A_ATTRIBUTES
 use M_ncurses, only : A_HORIZONTAL
 use M_ncurses, only : A_ALTCHARSET
 use M_ncurses, only : A_STANDOUT
@@ -263,11 +264,11 @@ public :: nc_printplain
 
 contains
 
-include "nc_errmessage.inc"
-include "nc_printescape.inc"
-include "nc_printhtml.inc"
-include "nc_printunicode.inc"
-include "nc_printplain.inc"
+#include  "nc_errmessage.inc"
+#include  "nc_printescape.inc"
+#include  "nc_printhtml.inc"
+#include  "nc_printunicode.inc"
+#include  "nc_printplain.inc"
 
 subroutine fixedform(tabs)
    character(len=:),allocatable,optional,intent(out) :: tabs
