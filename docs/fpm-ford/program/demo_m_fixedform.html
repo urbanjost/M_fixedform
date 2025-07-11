@@ -1,0 +1,764 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="M_fixedform project">
+    <meta name="author" content="John S Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>demo_M_fixedform &ndash; M_fixedform</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">M_fixedform </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/namelists.html">Namelists</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>demo_M_fixedform      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="10.9% of total for programs.">79 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/demo_M_fixedform.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/demo_m_fixedform.f90.html'>demo_M_fixedform.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">demo_M_fixedform</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-answers~2">answers</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-blue">blue</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-date">date</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-east">east</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-i~9">i</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-lanswer">lanswer</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-name">name</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-names">names</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-north">north</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-ranswer">ranswer</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-red">red</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-south">south</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-tabs">tabs</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-value">value</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-west">west</a>
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#variable-white">white</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#proc-make_data">make_data</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#namelists-0"
+         aria-expanded="false" aria-controls="namelists-0">
+         <h4 class="card-header bg-primary text-white">Namelists</h4>
+      </a>
+      <div id="namelists-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/demo_m_fixedform.html#namelist-form">form</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/demo_m_fixedform.html#src">demo_M_fixedform</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">M_strings</li>
+                  <li class="list-inline-item">M_fixedform</li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>!open(11,status=&rsquo;scratch&rsquo;)</p>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-answers~2"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>answers</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-blue"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>blue</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-date"></span>
+              character(len=80)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>date</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-east"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>east</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~9"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lanswer"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lanswer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-name"></span>
+              character(len=80)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>name</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-names"></span>
+              character(len=5),
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>names</strong>(10)</td>
+<td> =</td>
+                <td>[character(len=5)::&#34;RED&#34;, &#34;WHITE&#34;, &#34;BLUE&#34;, &#34;NAME&#34;, &#34;DATE&#34;, &#34;VALUE&#34;, &#34;EAST&#34;, &#34;WEST&#34;, &#34;NORTH&#34;, &#34;SOUTH&#34;]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-north"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>north</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ranswer"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ranswer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-red"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>red</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-south"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>south</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tabs"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>tabs</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-value"></span>
+              real
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>value</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-west"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>west</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-white"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>white</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-make_data"></span> <h3> subroutine <a href='../proc/make_data.html'>make_data</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+    </section>    
+    
+      <section>
+        <h2>Namelists</h2>
+            <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="namelist-form"></span>
+      <h3>Namelist <a href='../namelist/form.html'>form</a></h3>
+    </div>
+    <div class="card-body">
+        
+  <br class="visible-xs visible-sm hidden-md">
+  <section>
+    <h2>Variables</h2>
+    <table class="table table-striped" id="namelist-form">
+      <thead><tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+      </tr></thead>
+      <tbody>
+              <tr id="variable-red">
+      <td><a href="#variable-red">red</a></td>
+      <td>logical</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+              <tr id="variable-white">
+      <td><a href="#variable-white">white</a></td>
+      <td>logical</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+              <tr id="variable-blue">
+      <td><a href="#variable-blue">blue</a></td>
+      <td>logical</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+              <tr id="variable-name">
+      <td><a href="#variable-name">name</a></td>
+      <td>character(len=80)</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+              <tr id="variable-date">
+      <td><a href="#variable-date">date</a></td>
+      <td>character(len=80)</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+              <tr id="variable-value">
+      <td><a href="#variable-value">value</a></td>
+      <td>real</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+              <tr id="variable-east">
+      <td><a href="#variable-east">east</a></td>
+      <td>logical</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+              <tr id="variable-west">
+      <td><a href="#variable-west">west</a></td>
+      <td>logical</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+              <tr id="variable-north">
+      <td><a href="#variable-north">north</a></td>
+      <td>logical</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+              <tr id="variable-south">
+      <td><a href="#variable-south">south</a></td>
+      <td>logical</td>
+      <td>None</td>
+      <td></td>
+    </tr>
+
+      </tbody>
+    </table>
+  </section>
+
+    </div>
+  </div>
+
+      </section>
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">     </span><span class="k">program </span><span class="n">demo_M_fixedform</span><span class="w"></span>
+<span class="w">     </span><span class="k">use </span><span class="n">M_fixedform</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">fixedform</span><span class="p">,</span><span class="w"> </span><span class="n">loaddata</span><span class="p">,</span><span class="w"> </span><span class="n">icount_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">page_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">page_pd</span><span class="p">,</span><span class="w"> </span><span class="n">icount_pd</span><span class="w"></span>
+<span class="w">     </span><span class="k">use </span><span class="n">M_strings</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">split</span><span class="p">,</span><span class="w"> </span><span class="n">s2v</span><span class="w"></span>
+<span class="w">     </span><span class="k">implicit none</span>
+<span class="k">     </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">     </span><span class="p">&amp;</span><span class="w"> </span><span class="n">names</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">=</span><span class="p">[</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="s2">&quot;RED&quot;</span><span class="p">,</span><span class="s2">&quot;WHITE&quot;</span><span class="p">,</span><span class="s2">&quot;BLUE&quot;</span><span class="p">,</span><span class="s2">&quot;NAME&quot;</span><span class="p">,</span><span class="s2">&quot;DATE&quot;</span><span class="p">,</span><span class="s2">&quot;VALUE&quot;</span><span class="p">,</span><span class="s2">&quot;EAST&quot;</span><span class="p">,</span><span class="s2">&quot;WEST&quot;</span><span class="p">,</span><span class="s2">&quot;NORTH&quot;</span><span class="p">,</span><span class="s2">&quot;SOUTH&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="w">     </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">tabs</span><span class="w"></span>
+<span class="w">     </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">answers</span><span class="p">(:)</span><span class="w"> </span><span class="c">! output array of tokens</span>
+<span class="w">     </span><span class="kt">logical</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">lanswer</span><span class="w"></span>
+<span class="w">     </span><span class="kt">real</span><span class="w">                           </span><span class="kd">::</span><span class="w"> </span><span class="n">ranswer</span><span class="w"></span>
+<span class="w">     </span><span class="kt">integer</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">     </span><span class="c">! make a namelist for the form</span>
+<span class="w">     </span><span class="kt">logical</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">red</span><span class="p">,</span><span class="w"> </span><span class="n">white</span><span class="p">,</span><span class="w"> </span><span class="n">blue</span><span class="w"></span>
+<span class="w">     </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">name</span><span class="w"></span>
+<span class="w">     </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">date</span><span class="w"></span>
+<span class="w">     </span><span class="kt">real</span><span class="w">                           </span><span class="kd">::</span><span class="w"> </span><span class="k">value</span>
+<span class="k">     </span><span class="kt">logical</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">east</span><span class="p">,</span><span class="w"> </span><span class="n">west</span><span class="p">,</span><span class="w"> </span><span class="n">north</span><span class="p">,</span><span class="w"> </span><span class="n">south</span><span class="w"></span>
+<span class="w">     </span><span class="k">namelist</span><span class="w"> </span><span class="o">/</span><span class="n">form</span><span class="o">/</span><span class="w"> </span><span class="n">RED</span><span class="p">,</span><span class="n">WHITE</span><span class="p">,</span><span class="n">BLUE</span><span class="p">,</span><span class="n">NAME</span><span class="p">,</span><span class="n">DATE</span><span class="p">,</span><span class="k">VALUE</span><span class="p">,</span><span class="n">EAST</span><span class="p">,</span><span class="n">WEST</span><span class="p">,</span><span class="n">NORTH</span><span class="p">,</span><span class="n">SOUTH</span><span class="w"></span>
+<span class="w">     </span><span class="k">call </span><span class="n">make_data</span><span class="p">()</span><span class="w"></span>
+<span class="w">     </span><span class="n">page_ptr</span><span class="o">=&gt;</span><span class="n">page_pd</span><span class="w"></span>
+<span class="w">     </span><span class="n">icount_ptr</span><span class="o">=&gt;</span><span class="n">icount_pd</span><span class="w"></span>
+<span class="w">     </span><span class="k">call </span><span class="n">loaddata</span><span class="p">(</span><span class="s1">&#39;test.dat&#39;</span><span class="p">)</span><span class="w">      </span><span class="c">! fill the page(*) with user data</span>
+<span class="w">     </span><span class="k">call </span><span class="n">fixedform</span><span class="p">(</span><span class="n">tabs</span><span class="p">)</span><span class="w">           </span><span class="c">! display the form converted to a TDU</span>
+
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;The field values are returned left to right, top to bottom&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;as a tab-delimited string. The returned string is ...&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">tabs</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;The strings can be read from the string, reformatted as a &#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;NAMELIST string, or parsed.&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;parse string into an array of strings using tab delimiter&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">call </span><span class="n">split</span><span class="p">(</span><span class="n">tabs</span><span class="p">,</span><span class="n">answers</span><span class="p">,</span><span class="nb">char</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span><span class="n">nulls</span><span class="o">=</span><span class="s1">&#39;return&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;ARRAY IS&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(i0,t5,a)&#39;</span><span class="p">)(</span><span class="n">i</span><span class="p">,</span><span class="nb">trim</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">answers</span><span class="p">))</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">     </span><span class="c">! different ways of converting the strings to other types</span>
+
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39; convert a T/F string to a logical&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="n">lanswer</span><span class="o">=</span><span class="n">answers</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">eq</span><span class="p">.</span><span class="s1">&#39;T&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39; RED is &#39;</span><span class="p">,</span><span class="n">lanswer</span><span class="w"></span>
+<span class="w">     </span><span class="c">! or use an internal read</span>
+<span class="w">     </span><span class="k">read</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">lanswer</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39; WHITE is &#39;</span><span class="p">,</span><span class="n">lanswer</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39; NAME is  &#39;</span><span class="p">,</span><span class="nb">trim</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39; get a numeric value from a string&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="n">ranswer</span><span class="o">=</span><span class="kt">real</span><span class="p">(</span><span class="n">s2v</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="mi">6</span><span class="p">)))</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39; VALUE is &#39;</span><span class="p">,</span><span class="n">ranswer</span><span class="w"></span>
+<span class="w">     </span><span class="c">! or</span>
+<span class="w">     </span><span class="k">read</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="s1">&#39;(g20.13)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">ranswer</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39; VALUE is &#39;</span><span class="p">,</span><span class="n">ranswer</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;write out the data in the form of a namelist file&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="n">NAME</span><span class="o">=</span><span class="s1">&#39;UNKNOWN&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="n">DATE</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">VALUE</span><span class="o">=</span><span class="mf">0.00</span><span class="w"></span>
+<span class="w">     </span><span class="c">!*!open(11,status=&#39;scratch&#39;)</span>
+<span class="w">     </span><span class="k">open</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;form.txt&#39;</span><span class="p">,</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;readwrite&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;(&quot;&amp;FORM&quot;)&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">answers</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">answers</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">eq</span><span class="p">.</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="k">then</span>
+<span class="k">           write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;(*(a))&#39;</span><span class="p">)</span><span class="s2">&quot;! &quot;</span><span class="p">,</span><span class="nb">trim</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="s1">&#39; was blank&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="n">elseif</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="s1">&#39; &#39;</span><span class="p">).</span><span class="n">ne</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span>
+<span class="k">           write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;(*(a))&#39;</span><span class="p">)</span><span class="nb">trim</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="s1">&#39;=&quot;&#39;</span><span class="p">,</span><span class="nb">trim</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="s1">&#39;&quot;,&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span>
+<span class="k">           write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;(*(a))&#39;</span><span class="p">)</span><span class="nb">trim</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="nb">trim</span><span class="p">(</span><span class="n">answers</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="s1">&#39;,&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="k">endif</span>
+<span class="k">     enddo</span>
+<span class="k">     write</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="s1">&#39;(&quot;/&quot;)&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="c">! read the namelist file (an internal file could have been used instead of a file)</span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;read it back in&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">rewind</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">read</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="n">form</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;write out namelist using namelist output&#39;</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="n">form</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">contains</span>
+<span class="k">     subroutine </span><span class="n">make_data</span><span class="p">()</span><span class="w"></span>
+<span class="w">     </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">LUN</span><span class="o">=</span><span class="mi">10</span><span class="w"></span>
+<span class="w">     </span><span class="kt">integer</span><span class="w">           </span><span class="kd">::</span><span class="w"> </span><span class="n">ios</span><span class="w"></span>
+<span class="w">     </span><span class="k">open</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">LUN</span><span class="p">,</span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;test.dat&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">write</span><span class="p">(</span><span class="n">LUN</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)[</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w">                                            </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;@    The simplest use of FIXEDFORM is when a text file is used to define a     @&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;@    form to be generated much like it could be drawn on paper:                @&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;################################################################################&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#                                                                              #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#  ~ A basic form definition:         ~  ^ RED                                 #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#  ~ o Underlines become input fields ~  ^ WHITE                               #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#  ~ o Up-carets become menu options  ~  ^ BLUE                                #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#  ~ o Pound characters define boxes  ~                                        #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#  ~ o Text otherwise displays as-is  ~  Connected by pound characters or      #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#  ~   for the most part.             ~  adjacent to one another, up-carets    #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#  Name:  ___________________            form a radio button.                  #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#  Date:  ___________________            #######################               #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#  Value: ___________________            ^      ^       ^      ^               #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#                                       EAST   WEST   NORTH  SOUTH             #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;#                                                                              #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;# When the cursor is over a menu item it is toggled by pressing the space bar. #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;# A tab character moves to the next selectable item. Typing in an input value  #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;# changes the value. When the form is complete use the ctrl-S keys to submit.  #&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="s1">&#39;################################################################################&#39;</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">     </span><span class="k">close</span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="n">LUN</span><span class="p">,</span><span class="n">iostat</span><span class="o">=</span><span class="n">ios</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="k">end subroutine </span><span class="n">make_data</span><span class="w"></span>
+<span class="w">     </span><span class="k">end program </span><span class="n">demo_M_fixedform</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              M_fixedform
+ was developed by John S Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 00:35 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

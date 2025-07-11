@@ -1,0 +1,1172 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="M_fixedform project">
+    <meta name="author" content="John S Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>simple_key &ndash; M_fixedform</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">M_fixedform </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/namelists.html">Namelists</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>simple_key      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="27.8% of total for programs.">201 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/choose.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/choose.f90.html'>choose.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">simple_key</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/simple_key.html#variable-height">HEIGHT</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-width">WIDTH</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-c">c</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-choice">choice</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-choices_f">choices_f</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-cursor_state">cursor_state</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-debug">debug</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-default">default</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-downtime">downtime</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-highlight~2">highlight</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-i~6">i</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-icount">icount</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-ierr~3">ierr</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-ii">ii</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-index_list">index_list</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-j">j</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-menu_win~2">menu_win</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-message">message</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-mort">mort</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-startx">startx</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-starty">starty</a>
+            <a class="list-group-item" href="../program/simple_key.html#variable-string">string</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/simple_key.html#proc-help_usage~3">help_usage</a>
+            <a class="list-group-item" href="../program/simple_key.html#proc-help_version~3">help_version</a>
+            <a class="list-group-item" href="../program/simple_key.html#proc-numbers">numbers</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/simple_key.html#src">simple_key</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='../module/m_fixedform__simple_key.html'>M_fixedform__simple_key</a></li>
+                  <li class="list-inline-item">M_time</li>
+                  <li class="list-inline-item">M_kracken</li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>choices_f=[character(len=60) :: sgets(&lsquo;choose_oo&rsquo;,delim=&rsquo;:&rsquo;) ] ! menu choices to display
+ NOT TRUE IF BLANK, EXPECTED IT TO BE</p>
+<br>
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-height"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>HEIGHT</strong></td>
+<td> =</td>
+                <td>20</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-width"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>WIDTH</strong></td>
+<td> =</td>
+                <td>60</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>c</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-choice"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>choice</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-choices_f"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>choices_f</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cursor_state"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cursor_state</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-debug"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>debug</strong></td>
+<td> =</td>
+                <td>.false.</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-default"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>default</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-downtime"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>downtime</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-highlight~2"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>highlight</strong></td>
+<td> =</td>
+                <td>1</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~6"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-icount"></span>
+              integer(kind=C_INT)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>icount</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~3"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ii"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ii</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-index_list"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>index_list</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-menu_win~2"></span>
+              type(C_PTR)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>menu_win</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-message"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>message</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mort"></span>
+              type(MEVENT)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mort</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-startx"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>startx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-starty"></span>
+              integer
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>starty</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-string"></span>
+              character(len=80)
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>string</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-help_usage~3"></span> <h3> subroutine <a href='../proc/help_usage~3.html'>help_usage</a>(l_help)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l_help~3"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l_help</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-help_version~3"></span> <h3> subroutine <a href='../proc/help_version~3.html'>help_version</a>(l_version)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Sample commands</p><a href="../proc/help_version~3.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l_version~3"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l_version</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-numbers"></span> <h3> subroutine <a href='../proc/numbers.html'>numbers</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">simple_key</span><span class="w"></span>
+<span class="k">use </span><span class="n">M_kracken</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">kracken</span><span class="p">,</span><span class="w"> </span><span class="n">sgets</span><span class="p">,</span><span class="w"> </span><span class="n">lget</span><span class="p">,</span><span class="w"> </span><span class="n">sget</span><span class="p">,</span><span class="w"> </span><span class="n">iget</span><span class="w"></span>
+<span class="k">use </span><span class="n">M_fixedform__simple_key</span><span class="w"></span>
+<span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">system_sleep</span><span class="w"></span>
+<span class="k">implicit none</span>
+<span class="k">type</span><span class="w"> </span><span class="p">(</span><span class="kt">C_PTR</span><span class="p">)</span><span class="w">                 </span><span class="kd">::</span><span class="w"> </span><span class="n">menu_win</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">choice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">c</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">cursor_state</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">startx</span><span class="p">,</span><span class="w"> </span><span class="n">starty</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">WIDTH</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span><span class="n">HEIGHT</span><span class="o">=</span><span class="mi">20</span><span class="w">               </span><span class="c">! size of subwindow to create menu in</span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span><span class="w">                             </span><span class="c">! used to hold the return value of many curses(3f) functions</span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">ii</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">downtime</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">(</span><span class="kt">C_INT</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">icount</span><span class="o">=</span><span class="mi">0</span><span class="w">                         </span><span class="c">! number of calls to read an input character and none was found</span>
+<span class="kt">logical</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">debug</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="k">type</span><span class="p">(</span><span class="n">MEVENT</span><span class="p">)</span><span class="w">                 </span><span class="kd">::</span><span class="w"> </span><span class="n">mort</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">string</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">choices_f</span><span class="p">(:)</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">message</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">index_list</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">default</span><span class="w"></span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="w">   </span><span class="k">call </span><span class="n">kracken</span><span class="p">(</span><span class="s1">&#39;choose&#39;</span><span class="p">,</span><span class="s1">&#39; -m Choose one ... -t -1 -help .F. -i -version .F. -debug .F. -d&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">help_usage</span><span class="p">(</span><span class="n">lget</span><span class="p">(</span><span class="s1">&#39;choose_help&#39;</span><span class="p">))</span><span class="w">                          </span><span class="c">! if -help option is present, display help text and exit</span>
+<span class="w">   </span><span class="k">call </span><span class="n">help_version</span><span class="p">(</span><span class="n">lget</span><span class="p">(</span><span class="s1">&#39;choose_version&#39;</span><span class="p">))</span><span class="w">                     </span><span class="c">! if -version option is present, display version text and exit</span>
+<span class="w">   </span><span class="n">message</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="n">sget</span><span class="p">(</span><span class="s1">&#39;choose_m&#39;</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="n">index_list</span><span class="o">=</span><span class="n">upper</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">sget</span><span class="p">(</span><span class="s1">&#39;choose_i&#39;</span><span class="p">)))</span><span class="w">                      </span><span class="c">! Other keys should just display their keycode values</span>
+<span class="w">   </span><span class="n">downtime</span><span class="o">=</span><span class="n">iget</span><span class="p">(</span><span class="s1">&#39;choose_t&#39;</span><span class="p">)</span><span class="w">                                     </span><span class="c">! How long before taking exit</span>
+<span class="w">   </span><span class="n">default</span><span class="o">=</span><span class="n">sget</span><span class="p">(</span><span class="s1">&#39;choose_d&#39;</span><span class="p">)</span><span class="w">                                      </span><span class="c">! How long before taking exit</span>
+<span class="w">   </span><span class="c">! could not find a simple way to define the array with a lower subscript not one</span>
+<span class="w">   </span><span class="c">!!choices_f=[character(len=60) :: sgets(&#39;choose_oo&#39;,delim=&#39;:&#39;) ] ! menu choices to display</span>
+<span class="w">   </span><span class="n">choices_f</span><span class="o">=</span><span class="n">sgets</span><span class="p">(</span><span class="s1">&#39;choose_oo&#39;</span><span class="p">,</span><span class="n">delim</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="w">                           </span><span class="c">! menu choices to display</span>
+<span class="w">   </span><span class="n">choices_f</span><span class="o">=</span><span class="p">[</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">choices_f</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">choices_f</span><span class="p">).</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span><span class="w">                               </span><span class="c">!! NOT TRUE IF BLANK, EXPECTED IT TO BE</span>
+<span class="w">      </span><span class="n">choices_f</span><span class="o">=</span><span class="p">[</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span><span class="s1">&#39;No&#39;</span><span class="p">,</span><span class="s1">&#39;Cancel&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="n">elseif</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">choices_f</span><span class="p">(</span><span class="mi">1</span><span class="p">))).</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span>
+<span class="k">      </span><span class="n">choices_f</span><span class="o">=</span><span class="p">[</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span><span class="s1">&#39;No&#39;</span><span class="p">,</span><span class="s1">&#39;Cancel&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">   </span><span class="n">n_choices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">choices_f</span><span class="p">)</span><span class="w">                             </span><span class="c">! get the number of items in the menu</span>
+<span class="w">   </span><span class="k">allocate</span><span class="p">(</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">choices_f</span><span class="p">))</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">choices</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">n_choices</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="n">choices</span><span class="p">(:)</span><span class="o">=</span><span class="n">choices_f</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">choices</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">do </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">choices</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="p">).</span><span class="n">eq</span><span class="p">.</span><span class="nb">char</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="k">then</span>
+<span class="k">            </span><span class="n">choices</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="w"></span>
+<span class="w">         </span><span class="k">endif</span>
+<span class="k">      enddo</span>
+<span class="k">   enddo</span>
+<span class="k">   deallocate</span><span class="p">(</span><span class="n">choices_f</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">choices</span><span class="p">).</span><span class="n">eq</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span>
+<span class="k">           </span><span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Exit&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">   if</span><span class="p">(</span><span class="n">default</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="n">default</span><span class="o">=</span><span class="n">choices</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">index_list</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="k">then</span><span class="w">                                </span><span class="c">! if no index list, use first letter of choice strings</span>
+<span class="w">      </span><span class="n">index_list</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">choices</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="n">i</span><span class="p">)).</span><span class="n">gt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span>
+<span class="k">            </span><span class="n">index_list</span><span class="o">=</span><span class="n">index_list</span><span class="o">//</span><span class="n">upper</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="k">else</span>
+<span class="k">            </span><span class="n">index_list</span><span class="o">=</span><span class="n">index_list</span><span class="o">//</span><span class="nb">char</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">endif</span>
+<span class="k">      enddo</span>
+<span class="k">   endif</span><span class="w"></span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="w">   </span><span class="n">stdscr</span><span class="o">=</span><span class="n">initscr</span><span class="p">()</span><span class="w">                                        </span><span class="c">! initialize curses(3c)</span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">start_color</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">init_pair</span><span class="p">(</span><span class="mi">1_C_SHORT</span><span class="p">,</span><span class="n">COLOR_WHITE</span><span class="p">,</span><span class="n">COLOR_BLUE</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">clear</span><span class="p">()</span><span class="w">                                            </span><span class="c">! clear the screen in case initscr(3c) did not</span>
+<span class="w">                                                           </span><span class="c">! most curses(3c) programs always call cbreak(3c) and noecho(3c)</span>
+<span class="w">                                                           </span><span class="c">! to ensure only what is posted by curses to the screen appears</span>
+<span class="w">                                                           </span><span class="c">! and that the program can read almost any keystroke immediately</span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">cbreak</span><span class="p">()</span><span class="w">                                           </span><span class="c">! Line buffering disabled. pass on most everything immediately</span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">noecho</span><span class="p">()</span><span class="w">                                           </span><span class="c">! tell the system to not echo the user keystrokes so you have control</span>
+<span class="w">                                                           </span><span class="c">! of what appears</span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">keypad</span><span class="p">(</span><span class="n">stdscr</span><span class="p">,</span><span class="n">TRUE</span><span class="p">)</span><span class="w">                                </span><span class="c">! set up for mouse</span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">mousemask</span><span class="p">(</span><span class="n">ALL_MOUSE_EVENTS</span><span class="p">,</span><span class="nb">C_NULL_PTR</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">cursor_state</span><span class="o">=</span><span class="n">curs_set</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">                                </span><span class="c">! The curs_set routine sets the cursor state to invisible, normal,</span>
+<span class="w">                                                           </span><span class="c">! or very visible for visibility equal to 0, 1, or 2 respectively. If</span>
+<span class="w">                                                           </span><span class="c">! the terminal supports the visibility requested, the previous cursor</span>
+<span class="w">                                                           </span><span class="c">! state is returned; otherwise, ERR is returned</span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">downtime</span><span class="p">.</span><span class="n">ge</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span>
+<span class="k">      </span><span class="n">ierr</span><span class="o">=</span><span class="n">halfdelay</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">                                    </span><span class="c">! Don&#39;t wait for more than 1/10 seconds for a keypress</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">   </span><span class="n">startx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">80</span><span class="o">-</span><span class="n">WIDTH</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w">                                   </span><span class="c">! define the top left corner for a subwindow</span>
+<span class="w">   </span><span class="n">starty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">24</span><span class="o">-</span><span class="n">HEIGHT</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">debug</span><span class="p">)</span><span class="k">then</span>
+<span class="k">      call </span><span class="n">numbers</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">   </span><span class="n">menu_win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newwin</span><span class="p">(</span><span class="n">HEIGHT</span><span class="p">,</span><span class="w"> </span><span class="n">WIDTH</span><span class="p">,</span><span class="w"> </span><span class="n">starty</span><span class="p">,</span><span class="w"> </span><span class="n">startx</span><span class="p">)</span><span class="w">        </span><span class="c">! start a subwindow for the menu to display in</span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">wbkgd</span><span class="p">(</span><span class="n">menu_win</span><span class="p">,</span><span class="n">COLOR_PAIR</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">keypad</span><span class="p">(</span><span class="n">menu_win</span><span class="p">,</span><span class="w"> </span><span class="n">TRUE</span><span class="p">)</span><span class="w"></span>
+<span class="w">                                                           </span><span class="c">! enables the keypad of the user&#39;s terminal.  If enabled</span>
+<span class="w">                                                           </span><span class="c">! the user can press a function  key (such  as an arrow key)</span>
+<span class="w">                                                           </span><span class="c">! and wgetch returns a single value representing the function key,</span>
+<span class="w">                                                           </span><span class="c">! as in KEY_LEFT.</span>
+<span class="w">                                                           </span><span class="c">! print usage instructions along the top of the main window</span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">mvaddstr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Use arrow keys to go up and down, Press enter to select a choice&quot;</span><span class="o">//</span><span class="nb">C_NULL_CHAR</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">mvaddstr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="o">//</span><span class="nb">C_NULL_CHAR</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">refresh</span><span class="p">()</span><span class="w">                                          </span><span class="c">! make sure everything is posted to the real screen</span>
+<span class="w">   </span><span class="k">call </span><span class="n">print_menu</span><span class="p">(</span><span class="n">menu_win</span><span class="p">,</span><span class="w"> </span><span class="n">highlight</span><span class="p">)</span><span class="w">                    </span><span class="c">! draw the menu with the top choice highlighted</span>
+<span class="w">   </span><span class="n">INFINITE</span><span class="p">:</span><span class="w"> </span><span class="k">do</span><span class="w">                                            </span><span class="c">! look for an up or down arrow or return key</span>
+<span class="w">      </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wgetch</span><span class="p">(</span><span class="n">menu_win</span><span class="p">)</span><span class="w">                                 </span><span class="c">! get next keypress</span>
+<span class="w">      </span><span class="k">select case</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="p">(</span><span class="n">ERR</span><span class="p">)</span><span class="w">                                            </span><span class="c">! wgetch(3c) did not find that a keyboard event was found</span>
+<span class="w">         </span><span class="n">icount</span><span class="o">=</span><span class="n">icount</span><span class="o">+</span><span class="mi">1</span><span class="w">                                   </span><span class="c">! count number of times nothing happened</span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">downtime</span><span class="p">.</span><span class="n">ge</span><span class="p">.</span><span class="mf">0.</span><span class="nb">and</span><span class="p">.(</span><span class="n">icount</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="n">downtime</span><span class="o">*</span><span class="mi">10</span><span class="p">))</span><span class="k">then</span><span class="w"> </span><span class="c">! idle time exceeded so take default</span>
+<span class="w">            </span><span class="n">choices</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">=</span><span class="n">default</span><span class="w">                             </span><span class="c">! overwrite first choice with default string . A little kludge</span>
+<span class="w">            </span><span class="n">choice</span><span class="o">=</span><span class="mi">1</span><span class="w">                                       </span><span class="c">! set reply to first element of choices</span>
+<span class="w">            </span><span class="k">exit </span><span class="n">INFINITE</span><span class="w"></span>
+<span class="w">         </span><span class="k">endif</span>
+<span class="k">         </span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;                                                          &#39;</span><span class="w"></span>
+<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span><span class="n">icount</span><span class="w">                          </span><span class="c">! create a message that tells what happened in this pass thru the loop</span>
+<span class="w">         </span><span class="mi">101</span><span class="w"> </span><span class="k">format</span><span class="p">(</span><span class="s2">&quot;Nothing happened &quot;</span><span class="p">,</span><span class="n">i0</span><span class="p">,</span><span class="s2">&quot; times.&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="p">(</span><span class="n">KEY_UP</span><span class="p">)</span><span class="w">                                         </span><span class="c">! if the up-arrow was pressed change which item to highlight</span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">highlight</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="k">then</span><span class="w">                            </span><span class="c">! already at top of menu and going up</span>
+<span class="w">            </span><span class="n">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n_choices</span><span class="w">                          </span><span class="c">! to wrap down to the bottom choice</span>
+<span class="w">         </span><span class="k">else</span><span class="w">                                              </span><span class="c">! move hightlight up an option</span>
+<span class="w">            </span><span class="n">highlight</span><span class="o">=</span><span class="n">highlight</span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">endif</span>
+<span class="k">         </span><span class="n">icount</span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="p">(</span><span class="n">KEY_DOWN</span><span class="p">)</span><span class="w">                                       </span><span class="c">! move highlight choice according to down-arrow being pressed</span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">highlight</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n_choices</span><span class="p">)</span><span class="k">then</span>
+<span class="k">            </span><span class="n">highlight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">else</span>
+<span class="k">            </span><span class="n">highlight</span><span class="o">=</span><span class="n">highlight</span><span class="o">+</span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">endif</span>
+<span class="k">         </span><span class="n">icount</span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="w">                                             </span><span class="c">! escape</span>
+<span class="w">            </span><span class="n">choices</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39;EXIT&#39;</span><span class="w">                              </span><span class="c">! overwrite first choice with default string . A little kludge</span>
+<span class="w">            </span><span class="n">choice</span><span class="o">=</span><span class="mi">1</span><span class="w">                                       </span><span class="c">! set reply to first element of choices</span>
+<span class="w">      </span><span class="k">case</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w">                                             </span><span class="c">! entered a RETURN so record which choice is highlighted as the selection</span>
+<span class="w">         </span><span class="n">choice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">highlight</span><span class="w"></span>
+<span class="w">         </span><span class="n">icount</span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="p">(</span><span class="n">KEY_MOUSE</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">ierr</span><span class="o">=</span><span class="n">getmouse</span><span class="p">(</span><span class="n">mort</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">highlight</span><span class="o">=</span><span class="n">mort</span><span class="p">%</span><span class="n">y</span><span class="o">-</span><span class="mi">3</span><span class="w"></span>
+<span class="w">         </span><span class="n">highlight</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">highlight</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">highlight</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">highlight</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">choices</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="n">icount</span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
+<span class="w">         </span><span class="c">!--------------------------------------</span>
+<span class="w">         </span><span class="c">! make it so if mouse click, exit. If you want it to wait for RETURN remove this</span>
+<span class="w">         </span><span class="k">call </span><span class="n">print_menu</span><span class="p">(</span><span class="n">menu_win</span><span class="p">,</span><span class="w"> </span><span class="n">highlight</span><span class="p">)</span><span class="w">              </span><span class="c">! redraw the menu with the highlighting possibly moved</span>
+<span class="w">         </span><span class="k">call </span><span class="n">system_sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">choice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">highlight</span><span class="w"></span>
+<span class="w">         </span><span class="k">exit </span><span class="n">INFINITE</span><span class="w"></span>
+<span class="w">         </span><span class="c">!--------------------------------------</span>
+<span class="w">      </span><span class="k">case </span><span class="n">default</span><span class="w">                                         </span><span class="c">! for any other key show the key value and (maybe) the character</span>
+<span class="w">         </span><span class="n">ii</span><span class="o">=</span><span class="nb">index</span><span class="p">(</span><span class="n">index_list</span><span class="p">,</span><span class="n">upper</span><span class="p">(</span><span class="nb">char</span><span class="p">(</span><span class="n">c</span><span class="p">)))</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">ii</span><span class="p">.</span><span class="n">gt</span><span class="p">.</span><span class="mf">0.</span><span class="nb">and</span><span class="p">.</span><span class="n">ii</span><span class="p">.</span><span class="n">le</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="n">choices</span><span class="p">))</span><span class="k">then</span>
+<span class="k">            </span><span class="n">choice</span><span class="o">=</span><span class="n">ii</span><span class="w"></span>
+<span class="w">            </span><span class="k">exit </span><span class="n">INFINITE</span><span class="w"></span>
+<span class="w">         </span><span class="k">else</span>
+<span class="k">            write</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="s1">&#39;(&quot;Character pressed is = &quot;,i3,&quot; Hopefully it can be printed as &quot;,a)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="nb">char</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">ierr</span><span class="o">=</span><span class="n">mvaddstr</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">//</span><span class="nb">C_NULL_CHAR</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">ierr</span><span class="o">=</span><span class="n">clrtoeol</span><span class="p">()</span><span class="w">    </span><span class="c">! erase the tail of any old message (erases from current position to the end of the current line).</span>
+<span class="w">         </span><span class="k">endif</span>
+<span class="k">         </span><span class="n">ierr</span><span class="o">=</span><span class="n">refresh</span><span class="p">()</span><span class="w">                                    </span><span class="c">! make sure real screen is up-to-date</span>
+<span class="w">         </span><span class="n">icount</span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">end select</span>
+<span class="k">      call </span><span class="n">print_menu</span><span class="p">(</span><span class="n">menu_win</span><span class="p">,</span><span class="w"> </span><span class="n">highlight</span><span class="p">)</span><span class="w">                 </span><span class="c">! redraw the menu with the highlighting possibly moved</span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">choice</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="k">then</span><span class="w">                                  </span><span class="c">! User did a choice so come out of the infinite loop</span>
+<span class="w">         </span><span class="k">exit </span><span class="n">INFINITE</span><span class="w"></span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">   enddo </span><span class="n">INFINITE</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">cursor_state</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="k">then</span><span class="w">                            </span><span class="c">! restore cursor state so cursor (probably) shows at end of following output</span>
+<span class="w">      </span><span class="n">ierr</span><span class="o">=</span><span class="n">curs_set</span><span class="p">(</span><span class="n">cursor_state</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">endif</span><span class="w"></span>
+<span class="w">   </span><span class="c">! print information on selection made</span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">debug</span><span class="p">)</span><span class="k">then</span>
+<span class="k">      write</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="s1">&#39;(&quot;You chose choice &quot;,i1,&quot; with choice string &quot;,a)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">choice</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="n">choice</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="n">ierr</span><span class="o">=</span><span class="n">mvaddstr</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span><span class="o">//</span><span class="nb">C_NULL_CHAR</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">ierr</span><span class="o">=</span><span class="n">mvaddstr</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">//</span><span class="nb">C_NULL_CHAR</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">ierr</span><span class="o">=</span><span class="n">clrtoeol</span><span class="p">()</span><span class="w">    </span><span class="c">! erase the tail of any old message (erases from current position to the end of the current line).</span>
+<span class="w">      </span><span class="n">ierr</span><span class="o">=</span><span class="n">refresh</span><span class="p">()</span><span class="w">     </span><span class="c">! make sure everything is posted to the real screen</span>
+<span class="w">      </span><span class="n">ierr</span><span class="o">=</span><span class="n">getch</span><span class="p">()</span><span class="w">       </span><span class="c">! Wait for a user keystroke. Some terminal types will restore or clear the screen so a pause is a good idea</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">endwin</span><span class="p">()</span><span class="w">      </span><span class="c">! exit curses mode</span>
+<span class="w">   </span><span class="k">write</span><span class="p">(</span><span class="n">ERROR_UNIT</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span><span class="n">advance</span><span class="o">=</span><span class="s1">&#39;no&#39;</span><span class="p">)</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">choices</span><span class="p">(</span><span class="n">choice</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="k">contains</span><span class="w"></span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="k">subroutine </span><span class="n">numbers</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="k">use </span><span class="n">M_ncurses</span><span class="w"></span>
+<span class="w">   </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">label</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="mi">999</span><span class="w">   </span><span class="c">! label up to 1000 rows of the main screen with a number on the left edge</span>
+<span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="n">label</span><span class="p">,</span><span class="s1">&#39;(i3.3)&#39;</span><span class="p">)</span><span class="n">i</span><span class="w"></span>
+<span class="w">      </span><span class="n">ierr</span><span class="o">=</span><span class="n">mvaddstr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="o">//</span><span class="nb">C_NULL_CHAR</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">ierr</span><span class="p">.</span><span class="n">lt</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">exit</span><span class="w"> </span><span class="c">! if printed off-screen then stop</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">ierr</span><span class="o">=</span><span class="n">refresh</span><span class="p">()</span><span class="w">   </span><span class="c">! make sure everything is posted to the real screen</span>
+<span class="k">end subroutine </span><span class="n">numbers</span><span class="w"></span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="k">subroutine </span><span class="n">help_usage</span><span class="p">(</span><span class="n">l_help</span><span class="p">)</span><span class="w"></span>
+<span class="k">implicit none</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">parameter</span><span class="w">     </span><span class="kd">::</span><span class="w"> </span><span class="n">ident</span><span class="o">=</span><span class="s2">&quot;@(#)help_usage(3f): prints help information&quot;</span><span class="w"></span>
+<span class="kt">logical</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">l_help</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">help_text</span><span class="p">(:)</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="kt">logical</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">stopit</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="n">stopit</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="k">if</span><span class="p">(</span><span class="n">l_help</span><span class="p">)</span><span class="k">then</span>
+<span class="n">help_text</span><span class="o">=</span><span class="p">[</span><span class="w"> </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="s1">&#39;NAME                                                                            &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   choose(1f) - [NCURSES] select one item from a menu using a screen interface  &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   (LICENSE:PD)                                                                 &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;SYNOPSIS                                                                        &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   choose  [choices] [ -i index] [ -t timeout ] [ -m text] [ -d default]|[ -help|--version]&#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;DESCRIPTION                                                                     &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    choose(1f) allows users to select one item from a list of choices           &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    and returns the prompt of the selected choice on stderr. If the escape      &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    key is struck the return string is &#39;&#39;EXIT&#39;&#39; and the program terminates.     &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    Otherwise, the highlighted string is returned when a RETURN is entered.     &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    Cursor keys may be used to scroll thru the choices. The current             &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    selection is highlighted.                                                   &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    Hot keys are generated by using the first character of each choice          &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    (the default) or from the string provided for the -i option.                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    If the mouse is supported by the terminal type being used, clicking on      &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;    a menu item selects it and the program then exits.                          &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;OPTIONS                                                                         &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   choices     Specifies the list of choices to be created,                     &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               delimited by :. The default list is &quot;Yes:No:Cancel&quot;.             &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               Currently limited to 16 60-character prompts.                    &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   -i index    optional list of letters to act as case-insensitive              &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               shortcuts (ie. &quot;hot-keys&quot;) for menu items. Striking the          &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               key will select the matching string from the choices             &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               and exit. The default is the first letter of each of             &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               the choices.                                                     &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   -t timeout  The number of 1/10 seconds to pause before a default             &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               choice is made. Acceptable values are from 0 to 9999.            &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   -d default  If a timeout occurs the default is to return the first           &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               string in the choices. This allows you to specify a              &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               string specifically returned by a timeout. It is ignored         &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               otherwise.                                                       &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   -m text     Specifies the message to be displayed before                     &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;               the prompt.                                                      &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   --help      Displays this help message and exit                              &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   --version   Displays version info and exit                                   &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   NOTE:                                                                        &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;EXAMPLES                                                                        &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;  Sample commands                                                               &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   choose --help                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   choose Yes:No:Cancel -i ync -m Select Y for Yes, N for No or C for Cancel    &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # time out and return &quot;Yes&quot; if no activity for ten seconds                   &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   choose Yes:No:Cancel -t 10                                                   &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # hot-keys will be &quot;12E&quot;                                                     &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   choose &#39;&#39;1) Tomorrow:2) Next Week:Exit&#39;&#39; -m Select when to start ...         &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;  The program writes the selection to stderr. A bash(1) example showing         &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;  how to read the output into a variable follows:                               &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   #!/bin/bash                                                                  &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # The program writes to stderr. To read the output into a                    &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # variable but let ncurses(3c) control the screen we need                    &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # to first perform some redirection to perform a command substitution        &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # and assign the output of a the command to the variable RESULT.             &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   #                                                                            &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   exec 3&gt;&amp;1 # Duplicate file descriptor 1 on descriptor 3                      &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;             # as backup of descriptor 1                                        &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   RESULT=$(choose 2&gt;&amp;1 1&gt;&amp;3)  # run program                                    &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   exec 3&gt;&amp;- # Close file descriptor 3                                          &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   case &quot;$RESULT&quot; in                                                            &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   Yes)    echo &quot;Do stuff when answer is $RESULT&quot; ;;                            &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   No)     echo &quot;Do stuff when answer is $RESULT&quot; ;;                            &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   Cancel) echo &quot;Do stuff when answer is $RESULT&quot; ;;                            &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   EXIT)   echo &quot;Do stuff when answer is escape key ;;                          &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   *)      echo &quot;$0 : ERROR: unknown answer $RESULT&quot; ;;                         &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   esac                                                                         &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # redirection of descriptor 2 (stderr) to be the duplicate                   &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # of descriptor 1 and descriptor 1 is restored to its original               &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # value by duplicating descriptor 3 which contains the backup copy.          &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   exit                                                                         &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;  You can also use scratch files. For example                                   &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   #!/bin/bash                                                                  &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # The program writes the chosen string to stderr.                            &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   # Create a temporary file and make sure it goes away when dome               &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   tmp_file=$(tempfile 2&gt;/dev/null) || tmp_file=/tmp/test$$                     &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   trap &quot;rm -f $tmp_file&quot; 0 1 2 5 15                                            &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   choose 2&gt; $tmp_file                                                          &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   RESULT=`cat $tmp_file`                                                       &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   exit                                                                         &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;SEE ALSO                                                                        &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   dialog                                                                       &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;                                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;AUTHOR                                                                          &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   John S. Urban                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;LICENSE                                                                         &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;   Public Domain                                                                &#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)(</span><span class="nb">trim</span><span class="p">(</span><span class="n">help_text</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="k">stop</span><span class="w"> </span><span class="c">! if --help was specified, stop</span>
+<span class="k">endif</span>
+<span class="k">end subroutine </span><span class="n">help_usage</span><span class="w"></span>
+<span class="c">!&gt;</span>
+<span class="c">!!##NAME</span>
+<span class="c">!!    choose(1f) - [NCURSES] select one item from a menu using a screen interface</span>
+<span class="c">!!    (LICENSE:PD)</span>
+<span class="c">!!</span>
+<span class="c">!!##SYNOPSIS</span>
+<span class="c">!!</span>
+<span class="c">!!    choose  [choices] [ -i index] [ -t timeout ] [ -m text] [ -d default]|[ -help|--version]</span>
+<span class="c">!!</span>
+<span class="c">!!##DESCRIPTION</span>
+<span class="c">!!     choose(1f) allows users to select one item from a list of choices</span>
+<span class="c">!!     and returns the prompt of the selected choice on stderr. If the escape</span>
+<span class="c">!!     key is struck the return string is &#39;EXIT&#39; and the program terminates.</span>
+<span class="c">!!     Otherwise, the highlighted string is returned when a RETURN is entered.</span>
+<span class="c">!!     Cursor keys may be used to scroll thru the choices. The current</span>
+<span class="c">!!     selection is highlighted.</span>
+<span class="c">!!</span>
+<span class="c">!!     Hot keys are generated by using the first character of each choice</span>
+<span class="c">!!     (the default) or from the string provided for the -i option.</span>
+<span class="c">!!</span>
+<span class="c">!!     If the mouse is supported by the terminal type being used, clicking on</span>
+<span class="c">!!     a menu item selects it and the program then exits.</span>
+<span class="c">!!</span>
+<span class="c">!!##OPTIONS</span>
+<span class="c">!!    choices     Specifies the list of choices to be created,</span>
+<span class="c">!!                delimited by :. The default list is &quot;Yes:No:Cancel&quot;.</span>
+<span class="c">!!</span>
+<span class="c">!!                Currently limited to 16 60-character prompts.</span>
+<span class="c">!!</span>
+<span class="c">!!    -i index    optional list of letters to act as case-insensitive</span>
+<span class="c">!!                shortcuts (ie. &quot;hot-keys&quot;) for menu items. Striking the</span>
+<span class="c">!!                key will select the matching string from the choices</span>
+<span class="c">!!                and exit. The default is the first letter of each of</span>
+<span class="c">!!                the choices.</span>
+<span class="c">!!</span>
+<span class="c">!!    -t timeout  The number of 1/10 seconds to pause before a default</span>
+<span class="c">!!                choice is made. Acceptable values are from 0 to 9999.</span>
+<span class="c">!!    -d default  If a timeout occurs the default is to return the first</span>
+<span class="c">!!                string in the choices. This allows you to specify a</span>
+<span class="c">!!                string specifically returned by a timeout. It is ignored</span>
+<span class="c">!!                otherwise.</span>
+<span class="c">!!</span>
+<span class="c">!!    -m text     Specifies the message to be displayed before</span>
+<span class="c">!!                the prompt.</span>
+<span class="c">!!</span>
+<span class="c">!!    --help      Displays this help message and exit</span>
+<span class="c">!!    --version   Displays version info and exit</span>
+<span class="c">!!</span>
+<span class="c">!!    NOTE:</span>
+<span class="c">!!</span>
+<span class="c">!!##EXAMPLES</span>
+<span class="c">!!</span>
+<span class="c">!!   Sample commands</span>
+<span class="c">!!</span>
+<span class="c">!!    choose --help</span>
+<span class="c">!!</span>
+<span class="c">!!    choose Yes:No:Cancel -i ync -m Select Y for Yes, N for No or C for Cancel</span>
+<span class="c">!!</span>
+<span class="c">!!    # time out and return &quot;Yes&quot; if no activity for ten seconds</span>
+<span class="c">!!    choose Yes:No:Cancel -t 10</span>
+<span class="c">!!</span>
+<span class="c">!!    # hot-keys will be &quot;12E&quot;</span>
+<span class="c">!!    choose &#39;1) Tomorrow:2) Next Week:Exit&#39; -m Select when to start ...</span>
+<span class="c">!!</span>
+<span class="c">!!   The program writes the selection to stderr. A bash(1) example showing</span>
+<span class="c">!!   how to read the output into a variable follows:</span>
+<span class="c">!!</span>
+<span class="c">!!    #!/bin/bash</span>
+<span class="c">!!    # The program writes to stderr. To read the output into a</span>
+<span class="c">!!    # variable but let ncurses(3c) control the screen we need</span>
+<span class="c">!!    # to first perform some redirection to perform a command substitution</span>
+<span class="c">!!    # and assign the output of a the command to the variable RESULT.</span>
+<span class="c">!!    #</span>
+<span class="c">!!    exec 3&gt;&amp;1 # Duplicate file descriptor 1 on descriptor 3</span>
+<span class="c">!!              # as backup of descriptor 1</span>
+<span class="c">!!    RESULT=$(choose 2&gt;&amp;1 1&gt;&amp;3)  # run program</span>
+<span class="c">!!    exec 3&gt;&amp;- # Close file descriptor 3</span>
+<span class="c">!!    case &quot;$RESULT&quot; in</span>
+<span class="c">!!    Yes)    echo &quot;Do stuff when answer is $RESULT&quot; ;;</span>
+<span class="c">!!    No)     echo &quot;Do stuff when answer is $RESULT&quot; ;;</span>
+<span class="c">!!    Cancel) echo &quot;Do stuff when answer is $RESULT&quot; ;;</span>
+<span class="c">!!    EXIT)   echo &quot;Do stuff when answer is escape key ;;</span>
+<span class="c">!!    *)      echo &quot;$0 : ERROR: unknown answer $RESULT&quot; ;;</span>
+<span class="c">!!    esac</span>
+<span class="c">!!    # redirection of descriptor 2 (stderr) to be the duplicate</span>
+<span class="c">!!    # of descriptor 1 and descriptor 1 is restored to its original</span>
+<span class="c">!!    # value by duplicating descriptor 3 which contains the backup copy.</span>
+<span class="c">!!    exit</span>
+<span class="c">!!</span>
+<span class="c">!!   You can also use scratch files. For example</span>
+<span class="c">!!</span>
+<span class="c">!!    #!/bin/bash</span>
+<span class="c">!!    # The program writes the chosen string to stderr.</span>
+<span class="c">!!    # Create a temporary file and make sure it goes away when dome</span>
+<span class="c">!!    tmp_file=$(tempfile 2&gt;/dev/null) || tmp_file=/tmp/test$$</span>
+<span class="c">!!    trap &quot;rm -f $tmp_file&quot; 0 1 2 5 15</span>
+<span class="c">!!    choose 2&gt; $tmp_file</span>
+<span class="c">!!    RESULT=`cat $tmp_file`</span>
+<span class="c">!!    exit</span>
+<span class="c">!!</span>
+<span class="c">!!##SEE ALSO</span>
+<span class="c">!!    dialog</span>
+<span class="c">!!</span>
+<span class="c">!!##AUTHOR</span>
+<span class="c">!!    John S. Urban</span>
+<span class="c">!!##LICENSE</span>
+<span class="c">!!    Public Domain</span>
+<span class="k">subroutine </span><span class="n">help_version</span><span class="p">(</span><span class="n">l_version</span><span class="p">)</span><span class="w"></span>
+<span class="k">implicit none</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">parameter</span><span class="w">     </span><span class="kd">::</span><span class="w"> </span><span class="n">ident</span><span class="o">=</span><span class="s2">&quot;@(#)help_version(3f): prints version information&quot;</span><span class="w"></span>
+<span class="kt">logical</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">l_version</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">help_text</span><span class="p">(:)</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="kt">logical</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">stopit</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="n">stopit</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
+<span class="k">if</span><span class="p">(</span><span class="n">l_version</span><span class="p">)</span><span class="k">then</span>
+<span class="n">help_text</span><span class="o">=</span><span class="p">[</span><span class="w"> </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="s1">&#39;@(#)PRODUCT:        GPF (General Purpose Fortran) utilities and examples&gt;&#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;@(#)PROGRAM:        choose(1)&gt;&#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;@(#)DESCRIPTION:    select an item from a screen menu&gt;&#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;@(#)VERSION:        1.0, 20180331&gt;&#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;@(#)AUTHOR:         John S. Urban&gt;&#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;@(#)HOME PAGE:      http://www.urbanjost.altervista.org/index.html&gt;&#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;@(#)COMPILED:       2023-05-27 00:57:02 UTC-240&gt;&#39;</span><span class="p">,&amp;</span><span class="w"></span>
+<span class="s1">&#39;&#39;</span><span class="p">]</span><span class="w"></span>
+<span class="w">   </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)(</span><span class="nb">trim</span><span class="p">(</span><span class="n">help_text</span><span class="p">(</span><span class="n">i</span><span class="p">)(</span><span class="mi">5</span><span class="p">:</span><span class="nb">len_trim</span><span class="p">(</span><span class="n">help_text</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="k">stop</span><span class="w"> </span><span class="c">! if --version was specified, stop</span>
+<span class="k">endif</span>
+<span class="k">end subroutine </span><span class="n">help_version</span><span class="w"></span>
+<span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="k">end program </span><span class="n">simple_key</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              M_fixedform
+ was developed by John S Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 00:35 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>

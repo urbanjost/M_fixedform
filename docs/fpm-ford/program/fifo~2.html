@@ -1,0 +1,809 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="M_fixedform project">
+    <meta name="author" content="John S Urban" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>fifo &ndash; M_fixedform</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">M_fixedform </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/namelists.html">Namelists</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>fifo      <small>Program</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="42.5% of total for programs.">307 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/fixedform.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/fixedform.f90.html'>fixedform.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">fifo</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/fifo~2.html#variable-answers">answers</a>
+            <a class="list-group-item" href="../program/fifo~2.html#variable-filename~2">filename</a>
+            <a class="list-group-item" href="../program/fifo~2.html#variable-io">io</a>
+            <a class="list-group-item" href="../program/fifo~2.html#variable-loop">loop</a>
+            <a class="list-group-item" href="../program/fifo~2.html#variable-once">once</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../program/fifo~2.html#proc-help_usage~2">help_usage</a>
+            <a class="list-group-item" href="../program/fifo~2.html#proc-help_version~2">help_version</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../program/fifo~2.html#src">fifo</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+        <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">M_kracken</li>
+                  <li class="list-inline-item">M_fixedform</li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+
+    <section>
+    <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-answers"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>answers</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-filename~2"></span>
+              character(len=:),
+            </td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-io"></span>
+              integer,
+            </td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>io</strong></td>
+<td> =</td>
+                <td>10</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-loop"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>loop</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-once"></span>
+              logical
+            </td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>once</strong></td>
+<td> =</td>
+                <td>.true.</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+    
+
+    
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-help_usage~2"></span> <h3> subroutine <a href='../proc/help_usage~2.html'>help_usage</a>(l_help)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l_help~2"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l_help</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-help_version~2"></span> <h3> subroutine <a href='../proc/help_version~2.html'>help_version</a>(l_version)  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l_version~2"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l_version</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+    </section>    
+    
+
+    <section>
+    <h2 id="src">Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">program </span><span class="n">fifo</span><span class="w"></span>
+<span class="w">   </span><span class="k">use </span><span class="n">M_kracken</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">kracken</span><span class="p">,</span><span class="w"> </span><span class="n">lget</span><span class="p">,</span><span class="w"> </span><span class="n">sget</span><span class="p">,</span><span class="w"> </span><span class="n">iget</span><span class="w">                  </span><span class="c">! add command-line parser module</span>
+<span class="w">   </span><span class="k">use </span><span class="n">M_fixedform</span><span class="w"></span>
+<span class="w">   </span><span class="k">implicit none</span>
+<span class="k">   </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
+<span class="w">   </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">answers</span><span class="w"></span>
+<span class="w">   </span><span class="kt">logical</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">loop</span><span class="p">,</span><span class="w"> </span><span class="n">once</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
+<span class="w">   </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">io</span><span class="o">=</span><span class="mi">10</span><span class="w"></span>
+<span class="c">!  define command arguments, default values and crack command line</span>
+<span class="w">   </span><span class="k">call </span><span class="n">kracken</span><span class="p">(</span><span class="s1">&#39;fixedform&#39;</span><span class="p">,</span><span class="s1">&#39;-f -loop .f. -help .f. -version .f. -demo &quot;#N#&quot;&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">help_usage</span><span class="p">(</span><span class="n">lget</span><span class="p">(</span><span class="s1">&#39;fixedform_help&#39;</span><span class="p">))</span><span class="w">                                </span><span class="c">! if -help option is present, display help text and exit</span>
+<span class="w">   </span><span class="k">call </span><span class="n">help_version</span><span class="p">(</span><span class="n">lget</span><span class="p">(</span><span class="s1">&#39;fixedform_version&#39;</span><span class="p">))</span><span class="w">                           </span><span class="c">! if -version option is present, display version text and exit</span>
+<span class="c">!  get commandline values.</span>
+<span class="w">   </span><span class="n">loop</span><span class="o">=</span><span class="n">lget</span><span class="p">(</span><span class="s1">&#39;fixedform_loop&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">filename</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="n">sget</span><span class="p">(</span><span class="s1">&#39;fixedform_oo&#39;</span><span class="p">))</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">sget</span><span class="p">(</span><span class="s1">&#39;fixedform_f&#39;</span><span class="p">))</span><span class="w"> </span><span class="c">! Allow filename as -oo or -f</span>
+<span class="c">!  all done parsing; do something with the values</span>
+<span class="w">   </span><span class="n">page_ptr</span><span class="o">=&gt;</span><span class="n">page_pd</span><span class="w"></span>
+<span class="w">   </span><span class="n">icount_ptr</span><span class="o">=&gt;</span><span class="n">icount_pd</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="n">filename</span><span class="p">.</span><span class="n">eq</span><span class="p">.</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="k">then</span>
+<span class="k">      open</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;fixedform_demo.tui&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;  ######################################################################&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;  # FIXEDFORM: Rapidly create easy-to-use TUI interfaces from Fortran. #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;  ######################################################################&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;@SUMMARY:@&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; If your program input could be specified on type-written forms with&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; instructions, it should be as easy to create that interface on a computer&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; as it would be to create those forms on paper.&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; That is what FIXEDFORM allows you to do. The manpage for M_fixedform(3fm)&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; contains example programs.&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;@DESCRIPTION:@&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; FIXEDFORM  provides  for  quickly  creating  simple  TUIs (Terminal-based&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; User Interfaces).  Complex  radio  buttons  are  supported as well as&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; text input fields and menu buttons.&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; FIXEFORM is appropriate for tasks such as interactively editing command&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; line  arguments  to  a  command and  simple  data-input forms.  It also&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; allows for easy construction and access to basic  instructions for&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; supplying input  values.&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; The FIXEDFORM user interface is intuitive and consistent, especially&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; for  Unix and  GNU/Linux  users  familar  with  utilities  such  as&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; the  vim(1) editor.&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; FIXEDFORM  can  be  called as a utility from practically any language,&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; or as a subroutine from Fortran.&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;@PRINTED OUTPUT@&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; Snapshots of the formatted  input  forms  can  be  generated  as  simple  HTML&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; documents using built-in functions. Using &#39;&#39;ctrl-O&#39;&#39; will generate output files&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; named &quot;paperNNNN.html&quot; where NNNN is an incremented whole number starting at&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; &quot;0000&quot;.&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;@REQUIREMENTS:@&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; FIXEDFORM is a terminal-based utility that requires&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;  ^ the ncurses(3c) library&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;  ^ a C compiler&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;  ^ a Fortran compiler that supports the ISO_C_BINDING interface&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;@INDEX:@&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;    o PROGRAM INTERFACE&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;       o CHARACTER ARRAY&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;       o NAMELIST&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;       o ENVIRONMENTAL VARIABLES&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;       o CALCULATOR VARIABLES&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;    o MAKING A FORM&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;    o USING A FORM&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;@PROGRAMMING INTERFACE@&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; The  programming interface is especially convenient for Fortran programs&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; to use, which otherwise  often  run  only  in  command-line-interface&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; environments.  A  minimal  amount  of  time  is  required  to  begin&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; creating applications that use it because the forms are easily created&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; using a text editor.&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;@    The simplest use of FIXEDFORM is when a text file is used to define a     @&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;@    form to be generated much like it could be drawn on paper:                @&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;################################################################################&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#                                                                              #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#  ~ A basic form definition:         ~  ^ `ARED`                              #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#  ~ o Underlines become input fields ~  ^ `PWHITE`                            #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#  ~ o Up-carets become menu options  ~  ^ `DBLUE`                             #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#  ~ o Pound characters define boxes  ~                                        #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#  ~ o Text otherwise displays as-is  ~  Connected by pound characters or      #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#  ~   for the most part.             ~  adjacent to one another, up-carets    #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#  Name:  ___________________            form a radio button.                  #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#  Date:  ___________________            #######################               #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#  Value: ___________________            ^      ^       ^      ^               #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#                                       EAST   WEST   NORTH  SOUTH             #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;#                                                                              #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;# When the cursor is over a menu item it is toggled by pressing the space bar. #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;# A tab character moves to the next selectable item. Typing in an input value  #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;# changes the value. When the form is complete use the ctrl-S keys to submit.  #&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;################################################################################&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; By  default  all  that  is  returned  when the ctrl-S key is entered is&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; a  character array composed of all the input fields, reading from left&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; to right first and then down the form.  A  selected  menu  item returns&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; a  T character, otherwise it returns an F character. When using this&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; mode with larger forms with more than one selection per line it becomes&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; difficult  to ensure  which value  goes with  which  entry so you have to&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; get more complicated. But for a small basic form that&#39;&#39;s pretty much it.&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39; ~SUMMARY OF BASIC RULES FOR CREATING A FORM:~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;       @INPUT FIELDS@&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~ o Underlines become one-line input fields            ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~ o Up-carets become clickable menu options. When      ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~   adjacent to a single row or column of pound        ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~   characters they act as a radio button. The pound   ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~   characters will display as connecting lines.       ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;       @DISPLAY OPTIONS@&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~ o Adjacent pound characters define boxes             ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~   (Single pound characters display as a pound symbol)~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~ o Text between tilde characters is in reverse-video  ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~ o Text between at characters has a green background  ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~ o Backslashes can be used for shadowing              ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~ o Other text displays as-is as white text on a black ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;          ~   background.                                        ~&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;   ~######################~   `AA``BB``CC``DD``EE``FF``GG``HH`&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;   ~#   January 2015     #~\  `II``JJ``KK``LL``MM``NN``OO``PP`&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;   ~######################~\  `QQ``RR``SS``TT``UU``VV``WW``XX`&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;   ~#Su#Mo#Tu#We#Th#Fr#Sa#~\  `YY``ZZ`&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;   ~######################~\   grave pairs -- Letter after first grave sets&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;   ~#  #  #  #  # 1# 2# 3#~\                  color pair&#39;</span><span class="w"></span>
+<span class="k">write</span><span class="p">(</span><span class="n">io</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;   ~# 4# 5# 6# 7# 8# 9#10#~\&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">~#</span><span class="mi">11</span><span class="err">#</span><span class="mi">12</span><span class="err">#</span><span class="mi">13</span><span class="err">#</span><span class="mi">14</span><span class="err">#</span><span class="mi">15</span><span class="err">#</span><span class="mi">16</span><span class="err">#</span><span class="mi">17</span><span class="err">#~\</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">~#</span><span class="mi">18</span><span class="err">#</span><span class="mi">19</span><span class="err">#</span><span class="mi">20</span><span class="err">#</span><span class="mi">21</span><span class="err">#</span><span class="mi">22</span><span class="err">#</span><span class="mi">23</span><span class="err">#</span><span class="mi">24</span><span class="err">#~\</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">~#</span><span class="mi">25</span><span class="err">#</span><span class="mi">26</span><span class="err">#</span><span class="mi">27</span><span class="err">#</span><span class="mi">28</span><span class="err">#</span><span class="mi">29</span><span class="err">#</span><span class="mi">30</span><span class="err">#</span><span class="mi">31</span><span class="err">#~\</span><span class="w">   </span><span class="n">back</span><span class="o">-</span><span class="n">slash</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">colored</span><span class="w"> </span><span class="kt">character </span><span class="n">cell</span><span class="w"> </span><span class="n">for</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">~######################~\</span><span class="w">                 </span><span class="n">shading</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">    </span><span class="err">\\\\\\\\\\\\\\\\\\\\\\\\</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">################################################################################</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w"> </span><span class="err">@</span><span class="n">LIMITATIONS</span><span class="w"> </span><span class="n">ON</span><span class="w"> </span><span class="n">USING</span><span class="w"> </span><span class="n">POUND</span><span class="w"> </span><span class="n">CHARACTERS</span><span class="p">:</span><span class="err">@</span><span class="w">                                     </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w"> </span><span class="n">Note</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">pound</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">pounds</span><span class="w"> </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">behave</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">described</span><span class="p">,</span><span class="w"> </span><span class="nb">and </span><span class="n">that</span><span class="w"> </span><span class="k">only </span><span class="n">a</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="nb">or </span><span class="n">column</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w">  </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">radio</span><span class="o">-</span><span class="n">button</span><span class="w"> </span><span class="n">menu</span><span class="p">.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">ABCDEF</span><span class="w"> </span><span class="n">menu</span><span class="w"> </span><span class="k">is </span><span class="nb">NOT </span><span class="n">a</span><span class="w"> </span><span class="n">radio</span><span class="w"> </span><span class="n">button</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="s2">&quot;o&quot;</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">boxes</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">box</span><span class="w"> </span><span class="nb">and </span><span class="n">the</span><span class="w"> </span><span class="n">menu</span><span class="w"> </span><span class="k">options</span><span class="p">.</span><span class="w">         </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">                                              </span><span class="err">##############################</span><span class="w">  </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">                                              </span><span class="err">#</span><span class="w"> </span><span class="n">Pick</span><span class="w"> </span><span class="k">all </span><span class="n">the</span><span class="w"> </span><span class="n">true</span><span class="w"> </span><span class="n">choices</span><span class="w">  </span><span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">                  </span><span class="err">######################</span><span class="w">      </span><span class="n">o</span><span class="err">#####</span><span class="n">o</span><span class="err">#####</span><span class="n">o</span><span class="err">#####</span><span class="n">o</span><span class="err">#####</span><span class="n">o</span><span class="err">####</span><span class="n">o</span><span class="w">  </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">   </span><span class="err">^`</span><span class="n">ARED</span><span class="w">  </span><span class="err">`</span><span class="w">      </span><span class="err">^</span><span class="w">      </span><span class="err">^</span><span class="w">      </span><span class="err">^</span><span class="w">      </span><span class="err">^</span><span class="w">      </span><span class="err">#</span><span class="w">     </span><span class="err">#</span><span class="w">     </span><span class="err">#</span><span class="w">     </span><span class="err">#</span><span class="w">     </span><span class="err">#</span><span class="w">    </span><span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">   </span><span class="err">^`</span><span class="n">PWHITE</span><span class="err">`</span><span class="w">     </span><span class="n">TUE</span><span class="w">    </span><span class="n">WED</span><span class="w">    </span><span class="n">THU</span><span class="w">    </span><span class="n">FRI</span><span class="w">     </span><span class="err">^</span><span class="w">     </span><span class="err">^</span><span class="w">     </span><span class="err">^</span><span class="w">     </span><span class="err">^</span><span class="w">     </span><span class="err">^</span><span class="w">    </span><span class="err">^</span><span class="w">  </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">   </span><span class="err">^`</span><span class="n">DBLUE</span><span class="w"> </span><span class="err">`</span><span class="w">                                  </span><span class="n">A</span><span class="w">     </span><span class="n">B</span><span class="w">     </span><span class="n">C</span><span class="w">     </span><span class="n">D</span><span class="w">     </span><span class="n">E</span><span class="w">    </span><span class="n">F</span><span class="w">  </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">                                                                              </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">                                                                              </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">  </span><span class="err">#^</span><span class="n">TOP</span><span class="w">          </span><span class="n">An</span><span class="w"> </span><span class="n">up</span><span class="o">-</span><span class="n">caret</span><span class="w"> </span><span class="n">makes</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">button</span><span class="p">.</span><span class="w"> </span><span class="n">Connected</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">pound</span><span class="o">-</span><span class="n">characters</span><span class="w">  </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">  </span><span class="err">#^</span><span class="n">MIDDLE</span><span class="w">       </span><span class="n">they</span><span class="w"> </span><span class="n">act</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">radio</span><span class="w"> </span><span class="n">buttons</span><span class="p">.</span><span class="w">                        </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">  </span><span class="err">#^</span><span class="n">BOTTOM</span><span class="w">                               </span><span class="err">^^^^^^^^^^</span><span class="w">      </span><span class="err">^####^####^####^</span><span class="w">     </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">                   </span><span class="err">^##^##^##^##^</span><span class="w">         </span><span class="mi">0123456789</span><span class="w">      </span><span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="w">     </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">                   </span><span class="mi">1</span><span class="w">  </span><span class="mi">2</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">5</span><span class="w">                         </span><span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w">  </span><span class="err">#</span><span class="w">     </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">                                                         </span><span class="err">^##^</span><span class="w"> </span><span class="err">^####^</span><span class="w"> </span><span class="err">^##^</span><span class="w">     </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">#</span><span class="w">                                                                              </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">################################################################################</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="n">There</span><span class="w"> </span><span class="k">is </span><span class="n">a</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="k">function </span><span class="n">key</span><span class="w"> </span><span class="n">panel</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">bottom</span><span class="w"> </span><span class="nb">and </span><span class="n">a</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">rest</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="k">is </span><span class="n">a</span><span class="w"> </span><span class="n">scrollable</span><span class="w"> </span><span class="n">area</span><span class="w"> </span><span class="n">reserved</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">@</span><span class="n">THE</span><span class="w"> </span><span class="n">PREDEFINED</span><span class="w"> </span><span class="n">BOXES</span><span class="p">:</span><span class="err">@</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="n">There</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">PgUp</span><span class="w"> </span><span class="nb">and </span><span class="n">PgDn</span><span class="p">,</span><span class="w"> </span><span class="n">Home</span><span class="p">,</span><span class="w"> </span><span class="n">Help</span><span class="p">,</span><span class="w"> </span><span class="k">End </span><span class="nb">and </span><span class="n">Enter</span><span class="w"> </span><span class="n">boxes</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">screen</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="n">bottom</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">  </span><span class="n">o</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">PgUp</span><span class="w"> </span><span class="nb">and </span><span class="n">PgDn</span><span class="w"> </span><span class="n">boxes</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="n">thru</span><span class="w"> </span><span class="n">large</span><span class="w"> </span><span class="n">forms</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">bottom</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">  </span><span class="n">o</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Home</span><span class="w"> </span><span class="n">box</span><span class="w"> </span><span class="n">puts</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="n">corner</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">    </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="n">corner</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">scrolling</span><span class="w"> </span><span class="n">region</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">  </span><span class="n">o</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Help</span><span class="w"> </span><span class="n">box</span><span class="w"> </span><span class="n">displays</span><span class="w"> </span><span class="nb">any </span><span class="n">help</span><span class="w"> </span><span class="n">pages</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">  </span><span class="n">o</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">End </span><span class="n">box</span><span class="w"> </span><span class="n">ends</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">program</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">  </span><span class="n">o</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">Submit</span><span class="w"> </span><span class="n">box</span><span class="w"> </span><span class="n">submits</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="k">data </span><span class="n">back</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">calling</span><span class="w"> </span><span class="k">program </span><span class="n">for</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">    </span><span class="n">processing</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">################################################################################</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">@</span><span class="n">SCROLLING</span><span class="w"> </span><span class="n">THE</span><span class="w"> </span><span class="n">FORM</span><span class="w"> </span><span class="n">REGION</span><span class="p">:</span><span class="err">@</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="k">If </span><span class="n">the</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="k">is </span><span class="n">big</span><span class="w"> </span><span class="n">enough</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">entire</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">don</span><span class="s1">&#39;&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">have</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">know</span><span class="w"> </span><span class="n">how</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">scroll</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="p">(</span><span class="nb">and </span><span class="n">at</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">xterm</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">program</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">adjust</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terminal</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">resized</span><span class="p">).</span><span class="w"> </span><span class="n">But</span><span class="w"> </span><span class="k">if</span><span class="err">~</span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">does</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="nb">not </span><span class="n">fit</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">terminal</span><span class="err">~</span><span class="n">you</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">ways</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">scroll</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">visible</span><span class="w"> </span><span class="n">subsection</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="p">....</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">  </span><span class="n">o</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">arrow</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="k">do </span><span class="n">what</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">expect</span><span class="w"> </span><span class="nb">and </span><span class="n">move</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cursor</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">to</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">    </span><span class="n">the</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">edge</span><span class="p">.</span><span class="w"> </span><span class="n">Attempting</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">move</span><span class="w"> </span><span class="n">past</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">edges</span><span class="w"> </span><span class="n">scrolls</span><span class="w"> </span><span class="n">the</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">    </span><span class="n">form</span><span class="w"> </span><span class="n">region</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">  </span><span class="n">o</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">shifted</span><span class="w"> </span><span class="n">arrow</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">cause</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">scrolling</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">  </span><span class="n">o</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">addition</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">ctrl</span><span class="o">-</span><span class="n">keys</span><span class="w"> </span><span class="n">smooth</span><span class="o">-</span><span class="n">scroll</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">window</span><span class="p">:</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">      </span><span class="n">o</span><span class="w"> </span><span class="n">PgUp</span><span class="w"> </span><span class="nb">or </span><span class="n">ctrl</span><span class="o">-</span><span class="n">B</span><span class="w"> </span><span class="p">(</span><span class="n">Backward</span><span class="p">)</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">up</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">      </span><span class="n">o</span><span class="w"> </span><span class="n">PgDn</span><span class="w"> </span><span class="nb">or </span><span class="n">ctrl</span><span class="o">-</span><span class="n">F</span><span class="w"> </span><span class="p">(</span><span class="n">Forward</span><span class="p">)</span><span class="w">  </span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">down</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">      </span><span class="n">o</span><span class="w"> </span><span class="n">ctrl</span><span class="o">-</span><span class="n">U</span><span class="w"> </span><span class="p">(</span><span class="n">Up</span><span class="p">)</span><span class="w">               </span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">up</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">      </span><span class="n">o</span><span class="w"> </span><span class="n">ctrl</span><span class="o">-</span><span class="n">D</span><span class="w"> </span><span class="p">(</span><span class="n">Down</span><span class="p">)</span><span class="w">             </span><span class="o">--</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">down</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">         </span><span class="err">@</span><span class="n">SMOOTH</span><span class="w"> </span><span class="n">SCROLLING</span><span class="err">@</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">              </span><span class="n">ctrl</span><span class="o">-</span><span class="n">Y</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">                </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">       </span><span class="n">ctrl</span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="err">#####</span><span class="w"> </span><span class="n">ctrl</span><span class="o">-</span><span class="n">R</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">                </span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">              </span><span class="n">ctrl</span><span class="o">-</span><span class="n">E</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">################################################################################</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">@</span><span class="n">CURSOR</span><span class="w"> </span><span class="n">MOVEMENT</span><span class="p">:</span><span class="err">@</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">The</span><span class="w"> </span><span class="n">cursor</span><span class="w"> </span><span class="k">is </span><span class="n">moved</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">arrow</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="nb">or </span><span class="n">by</span><span class="w"> </span><span class="n">toggling</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">vi</span><span class="o">-</span><span class="n">mode</span><span class="p">.</span><span class="w"> </span><span class="n">In</span><span class="w"> </span><span class="n">vi</span><span class="o">-</span><span class="n">mode</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">the</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">m</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">move</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cursor</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="k">do </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">vi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">editor</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">ctrl</span><span class="o">-</span><span class="n">v</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="k">is </span><span class="n">re</span><span class="o">-</span><span class="n">entered</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">The</span><span class="w"> </span><span class="n">Home</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">places</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="n">corner</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="n">corner</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="nb">and </span><span class="n">puts</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">cursor</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">corner</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">The</span><span class="w"> </span><span class="n">Tab</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="nb">or </span><span class="n">ctrl</span><span class="o">-</span><span class="n">N</span><span class="w"> </span><span class="n">moves</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">selectable</span><span class="w"> </span><span class="n">field</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">The</span><span class="w"> </span><span class="n">Backtab</span><span class="w"> </span><span class="p">(</span><span class="n">ie</span><span class="p">.</span><span class="w"> </span><span class="n">shifted</span><span class="w"> </span><span class="n">Tab</span><span class="p">)</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="nb">or </span><span class="n">ctrl</span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="n">moves</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">previous</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">selectable</span><span class="w"> </span><span class="n">field</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">################################################################################</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">@</span><span class="n">VI</span><span class="w"> </span><span class="n">MODE</span><span class="err">@</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">The</span><span class="w"> </span><span class="n">ESCAPE</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">toggles</span><span class="w"> </span><span class="n">vi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="w"> </span><span class="n">ctrl</span><span class="o">-</span><span class="n">V</span><span class="w"> </span><span class="n">always</span><span class="w"> </span><span class="n">puts</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">vi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="w"> </span><span class="n">You</span><span class="w"> </span><span class="n">are</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">in</span><span class="w"> </span><span class="n">vi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">everywhere</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="n">underlined</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">default</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">ctrl</span><span class="o">-</span><span class="n">N</span><span class="w"> </span><span class="nb">or </span><span class="n">n</span><span class="w"> </span><span class="nb">or </span><span class="n">tab</span><span class="w">       </span><span class="o">--</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">field</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">ctrl</span><span class="o">-</span><span class="n">P</span><span class="w"> </span><span class="nb">or </span><span class="n">p</span><span class="w"> </span><span class="nb">or </span><span class="n">shift</span><span class="o">-</span><span class="n">tab</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="k">go</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">field</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="mi">0</span><span class="w">                        </span><span class="o">--</span><span class="w"> </span><span class="n">beginning</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">line</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">g</span><span class="w">                        </span><span class="o">--</span><span class="w"> </span><span class="n">top</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">form</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">hjkl</span><span class="w">                     </span><span class="o">--</span><span class="w"> </span><span class="n">move</span><span class="w"> </span><span class="n">cursor</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">i</span><span class="w"> </span><span class="nb">or </span><span class="n">insert</span><span class="w">              </span><span class="o">--</span><span class="w"> </span><span class="n">insert</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">underlined</span><span class="w"> </span><span class="n">field</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">                            </span><span class="n">insert</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="nb">or </span><span class="n">ESC</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="nb">or </span><span class="n">anything</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">a</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">                            </span><span class="n">regular</span><span class="w"> </span><span class="kt">character</span><span class="p">,</span><span class="w"> </span><span class="n">delete</span><span class="p">,</span><span class="w"> </span><span class="n">arrow</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="n">ends</span><span class="w"> </span><span class="n">insert</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">                            </span><span class="n">mode</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">x</span><span class="w"> </span><span class="nb">or </span><span class="n">delete</span><span class="w">              </span><span class="o">--</span><span class="w"> </span><span class="n">delete</span><span class="w"> </span><span class="kt">character </span><span class="n">in</span><span class="w"> </span><span class="n">underlined</span><span class="w"> </span><span class="n">field</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">r</span><span class="w">                        </span><span class="o">--</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">underlined</span><span class="w"> </span><span class="n">field</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">                            </span><span class="n">This</span><span class="w"> </span><span class="k">is </span><span class="n">the</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="nb">not </span><span class="n">in</span><span class="w"> </span><span class="n">vi</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">                            </span><span class="n">ESCAPE</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="k">exit </span><span class="nb">and </span><span class="n">leave</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">where </span><span class="n">you</span><span class="w"> </span><span class="n">are</span><span class="p">.</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">################################################################################</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="n">Color</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="n">examples</span><span class="p">:</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">AColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">A</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">A</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">BColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">B</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">B</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">CColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">C</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">C</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">DColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">D</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">D</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">EColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">E</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">E</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">FColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">F</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">F</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">GColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">G</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">G</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">JColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">J</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">J</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">IColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">I</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">I</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">JColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">J</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">J</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">KColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">K</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">K</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">LColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">L</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">L</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">MColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">M</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">M</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">NColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">N</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">N</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">OColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">O</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">O</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">PColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">P</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">P</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">QColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">Q</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">Q</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">RColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">R</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">R</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">SColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">S</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">S</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">TColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">T</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">T</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">UColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">U</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">U</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">VColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">V</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">V</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">WColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">W</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">W</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">XColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">X</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">X</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">YColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">Y</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">Y</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="w">   </span><span class="err">#`</span><span class="n">ZColor</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">Z</span><span class="err">`#</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="n">Pair</span><span class="w"> </span><span class="n">Z</span><span class="err">#</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">################################################################################</span><span class="s1">&#39;</span>
+<span class="s1">write(io,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)&#39;</span><span class="err">################################################################################</span><span class="s1">&#39;</span>
+<span class="s1">      close(10)</span>
+<span class="s1">      filename=&#39;</span><span class="n">fixedform_demo</span><span class="p">.</span><span class="n">tui</span><span class="s1">&#39;</span>
+<span class="s1">   endif</span>
+<span class="s1">   call loaddata(filename)      ! fill the page(*) with user data</span>
+
+<span class="s1">   do while (once)</span>
+<span class="s1">         call fixedform(tabs=answers)</span>
+<span class="s1">         write(*,*)answers</span>
+<span class="s1">         once=loop</span>
+<span class="s1">   enddo</span>
+<span class="s1">contains</span>
+<span class="s1">subroutine help_version(l_version)</span>
+<span class="s1">implicit none</span>
+<span class="s1">character(len=*),parameter     :: ident=&quot;@(#)help_version(3f): prints version information&quot;</span>
+<span class="s1">logical,intent(in)             :: l_version</span>
+<span class="s1">character(len=:),allocatable   :: help_text(:)</span>
+<span class="s1">integer                        :: i</span>
+<span class="s1">logical                        :: stopit=.false.</span>
+<span class="s1">stopit=.false.</span>
+<span class="s1">if(l_version)then</span>
+<span class="s1">help_text=[ CHARACTER(LEN=128) :: &amp;</span>
+<span class="s1">&#39;</span><span class="err">@</span><span class="p">(</span><span class="err">#</span><span class="p">)</span><span class="nb">PRODUCT</span><span class="p">:</span><span class="w">        </span><span class="n">GPF</span><span class="w"> </span><span class="p">(</span><span class="n">General</span><span class="w"> </span><span class="n">Purpose</span><span class="w"> </span><span class="n">Fortran</span><span class="p">)</span><span class="w"> </span><span class="n">utilities</span><span class="w"> </span><span class="nb">and </span><span class="n">examples</span><span class="o">&gt;</span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="err">@</span><span class="p">(</span><span class="err">#</span><span class="p">)</span><span class="k">PROGRAM</span><span class="p">:</span><span class="w">        </span><span class="n">fixedform</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="err">@</span><span class="p">(</span><span class="err">#</span><span class="p">)</span><span class="n">DESCRIPTION</span><span class="p">:</span><span class="w">    </span><span class="n">display</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">TUI</span><span class="w"> </span><span class="n">definition</span><span class="w"> </span><span class="nb">and </span><span class="k">return </span><span class="n">values</span><span class="o">&gt;</span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="err">@</span><span class="p">(</span><span class="err">#</span><span class="p">)</span><span class="n">VERSION</span><span class="p">:</span><span class="w">        </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mi">20150508</span><span class="o">&gt;</span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="err">@</span><span class="p">(</span><span class="err">#</span><span class="p">)</span><span class="n">AUTHOR</span><span class="p">:</span><span class="w">         </span><span class="n">John</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="w"> </span><span class="n">Urban</span><span class="o">&gt;</span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="err">@</span><span class="p">(</span><span class="err">#</span><span class="p">)</span><span class="n">COMPILED</span><span class="p">:</span><span class="w">       </span><span class="mi">2023</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">27</span><span class="w"> </span><span class="mi">00</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">03</span><span class="w"> </span><span class="n">UTC</span><span class="o">-</span><span class="mi">240</span><span class="o">&gt;</span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;&#39;]</span>
+<span class="s1">   WRITE(*,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)(trim(help_text(i)(5:len_trim(help_text(i))-1)),i=1,size(help_text))</span>
+<span class="s1">   stop ! if --version was specified, stop</span>
+<span class="s1">endif</span>
+<span class="s1">end subroutine help_version</span>
+<span class="s1">subroutine help_usage(l_help)</span>
+<span class="s1">implicit none</span>
+<span class="s1">character(len=*),parameter     :: ident=&quot;@(#)help_usage(3f): prints help information&quot;</span>
+<span class="s1">logical,intent(in)             :: l_help</span>
+<span class="s1">character(len=:),allocatable :: help_text(:)</span>
+<span class="s1">integer                        :: i</span>
+<span class="s1">logical                        :: stopit=.false.</span>
+<span class="s1">stopit=.false.</span>
+<span class="s1">if(l_help)then</span>
+<span class="s1">help_text=[ CHARACTER(LEN=128) :: &amp;</span>
+<span class="s1">&#39;</span><span class="n">NAME</span><span class="w">                                                                            </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="n">fixedfrom</span><span class="p">(</span><span class="mi">1</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">[</span><span class="n">FUNIX</span><span class="p">]</span><span class="w"> </span><span class="k">read </span><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">TUI</span><span class="w"> </span><span class="n">definition</span><span class="w"> </span><span class="nb">and </span><span class="k">return </span><span class="n">values</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">panel</span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="p">(</span><span class="n">LICENSE</span><span class="p">:</span><span class="n">PD</span><span class="p">)</span><span class="w">                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">                                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="n">SYNOPSIS</span><span class="w">                                                                        </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="n">fixedform</span><span class="w"> </span><span class="p">[</span><span class="k">file</span><span class="err">|</span><span class="o">-</span><span class="n">demo</span><span class="p">]</span><span class="err">|</span><span class="p">[</span><span class="w"> </span><span class="o">--</span><span class="n">help</span><span class="err">|</span><span class="w"> </span><span class="o">--</span><span class="n">version</span><span class="p">]</span><span class="w">                                 </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">                                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="n">DESCRIPTION</span><span class="w">                                                                     </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="n">fixedform</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">reads</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">TUI</span><span class="w"> </span><span class="n">screen</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">definition</span><span class="w"> </span><span class="nb">and </span><span class="n">displays</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="nb">and </span><span class="n">returns</span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="n">the</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">screen</span><span class="p">.</span><span class="w">                                     </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">                                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="k">OPTIONS</span><span class="w">                                                                         </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="k">file       </span><span class="n">name</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">file </span><span class="n">containing</span><span class="w"> </span><span class="n">TUI</span><span class="w"> </span><span class="n">definition</span><span class="w">                           </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="o">-</span><span class="n">loop</span><span class="w">      </span><span class="k">continue </span><span class="n">reading</span><span class="w"> </span><span class="nb">and </span><span class="n">displaying</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">unit</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="n">q</span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">is </span><span class="n">entered</span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="o">--</span><span class="n">help</span><span class="w">     </span><span class="n">display</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">help</span><span class="w"> </span><span class="nb">and </span><span class="k">exit</span><span class="w">                                       </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="o">--</span><span class="n">version</span><span class="w">  </span><span class="n">output</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="nb">and </span><span class="k">exit</span><span class="w">                              </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="o">--</span><span class="n">demo</span><span class="w">                                                                      </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">                                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="n">EXAMPLES</span><span class="w">                                                                        </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="n">Sample</span><span class="w"> </span><span class="n">commands</span><span class="w">                                                             </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">                                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">       </span><span class="n">fixedform</span><span class="w">  </span><span class="n">FILE1</span><span class="w">                                                         </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">                                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="n">REPORTING</span><span class="w"> </span><span class="n">BUGS</span><span class="w">                                                                  </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="n">Report</span><span class="w"> </span><span class="n">fixedform</span><span class="w"> </span><span class="n">bugs</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">urbanjost</span><span class="p">.</span><span class="n">altervista</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="nb">index</span><span class="p">.</span><span class="n">html</span><span class="o">&gt;</span><span class="w">   </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">                                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="n">SEE</span><span class="w"> </span><span class="n">ALSO</span><span class="w">                                                                        </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">    </span><span class="n">yes</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="nb">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">xargs</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">                                                 </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="n">AUTHOR</span><span class="w">                                                                          </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">   </span><span class="n">John</span><span class="w"> </span><span class="n">S</span><span class="p">.</span><span class="w"> </span><span class="n">Urban</span><span class="w">                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="n">LICENSE</span><span class="w">                                                                         </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;</span><span class="w">   </span><span class="k">Public </span><span class="n">Domain</span><span class="w">                                                                </span><span class="s1">&#39;,&amp;</span>
+<span class="s1">&#39;&#39;]</span>
+<span class="s1">   WRITE(*,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;)(trim(help_text(i)),i=1,size(help_text))</span>
+<span class="s1">   stop ! if --help was specified, stop</span>
+<span class="s1">endif</span>
+<span class="s1">end subroutine help_usage</span>
+<span class="s1">!&gt;</span>
+<span class="s1">!!##NAME</span>
+<span class="s1">!!     fixedfrom(1f) - [FUNIX] read in a TUI definition and return values from screen panel</span>
+<span class="s1">!!     (LICENSE:PD)</span>
+<span class="s1">!!</span>
+<span class="s1">!!##SYNOPSIS</span>
+<span class="s1">!!</span>
+<span class="s1">!!     fixedform [file|-demo]|[ --help| --version]</span>
+<span class="s1">!!</span>
+<span class="s1">!!##DESCRIPTION</span>
+<span class="s1">!!     fixedform(1) reads in a TUI screen form definition and displays it and returns</span>
+<span class="s1">!!     the values used to fill out the screen.</span>
+<span class="s1">!!</span>
+<span class="s1">!!##OPTIONS</span>
+<span class="s1">!!     file       name of file containing TUI definition</span>
+<span class="s1">!!     -loop      continue reading and displaying the the form unit a &#39;</span><span class="n">q</span><span class="err">&#39;</span><span class="w"> </span><span class="k">is </span><span class="n">entered</span><span class="w"></span>
+<span class="c">!!     --help     display this help and exit</span>
+<span class="c">!!     --version  output version information and exit</span>
+<span class="c">!!     --demo</span>
+<span class="c">!!</span>
+<span class="c">!!##EXAMPLES</span>
+<span class="c">!!</span>
+<span class="c">!!     Sample commands</span>
+<span class="c">!!</span>
+<span class="c">!!        fixedform  FILE1</span>
+<span class="c">!!</span>
+<span class="c">!!##REPORTING BUGS</span>
+<span class="c">!!     Report fixedform bugs to &lt;http://www.urbanjost.altervista.org/index.html&gt;</span>
+<span class="c">!!</span>
+<span class="c">!!##SEE ALSO</span>
+<span class="c">!!     yes(1), repeat(1), xargs(1)</span>
+<span class="c">!!##AUTHOR</span>
+<span class="c">!!    John S. Urban</span>
+<span class="c">!!##LICENSE</span>
+<span class="c">!!    Public Domain</span>
+<span class="k">end program </span><span class="n">fifo</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              M_fixedform
+ was developed by John S Urban<br>              &copy; 2025 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2025-07-11 00:35 +0000             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+  </body>
+</html>
